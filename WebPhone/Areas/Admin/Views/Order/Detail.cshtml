@@ -1,0 +1,86 @@
+﻿@model Models.EntityFramework.Order_detail
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Detail", "Order", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-icon card-header-primary">
+                <div class="card-icon">
+                    <i class="material-icons">assignment</i>
+                </div>
+                <h2 class="card-title text-primary text-center">CHI TIẾT HÓA ĐƠN</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <tr>
+                                <th class="text-center">
+                                    Tên khách hàng
+                                </th>
+                                <th class="text-center">
+                                    Số điện thoại khách hàng
+                                </th>
+                                <th class="text-center">
+                                    Mail
+                                </th>
+                                <th class="text-center">
+                                    Địa chỉ nhận hàng
+                                </th>
+                                <th class="text-center">
+                                    Tên sản phẩm
+                                </th>
+                                <th class="text-center">
+                                    Số lượng
+                                </th>
+                                <th class="text-center">
+                                    Đơn giá
+                                </th>
+                                <th class="text-center">
+                                    Thành tiền
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    @Html.DisplayFor(model => model.Order.Customer.Customer_name)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(model => model.Order.Customer.Customer_phone)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(model => model.Order.Customer.Customer_mail)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(model => model.Order.Delivery_address)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(model => model.Phones.Name_phone)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(model => model.Sale_quantity)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(model => model.Price)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(model => model.Order.Total_price)
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>   
+}
+
+    

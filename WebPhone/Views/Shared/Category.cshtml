@@ -1,0 +1,19 @@
+﻿@model List<Models.EntityFramework.Category>
+<div class="section">
+    <div class="col-md-8 ml-auto mr-auto">
+        <div class="page-categories">
+            <h1 class="title text-center">Danh mục sản phẩm</h1>
+            <br>
+            <ul class="nav nav-pills nav-pills-primary nav-pills-icons justify-content-center">
+                @foreach(var item in Model)
+                {
+                <li class="nav-item">
+                    <a class="nav-link" href="/danh-muc/@item.Metta_title-@item.Category_id">
+                        <i class="material-icons">smartphone</i> @item.Category_name
+                    </a>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,10 +1,11 @@
-﻿using Models;
+﻿using Models.DAO;
+using Models.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebPhone.Areas.Admin.Code;
+using System.Web.Security;
 using WebPhone.Areas.Admin.Models;
 
 namespace WebPhone.Areas.Admin.Controllers
@@ -21,16 +22,22 @@ namespace WebPhone.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginModel model)
         {
-            var result = new UserModel().Login(model.UserName, model.Password);
-            if(result && ModelState.IsValid)
+            
+            if(Membership.ValidateUser(model.Username,model.Password) && ModelState.IsValid)
             {
-                SessionHelper.SetSession(new UserSession() { UserName = model.UserName });
+                FormsAuthentication.SetAuthCookie(model.Username,model.Rememberme);
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                return View(model);
+                ModelState.AddModelError("",string.Format("Tài khoản hoặc mật khẩu không đúng."));
             }
+            return View(model);
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

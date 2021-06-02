@@ -6,11 +6,11 @@ using System.Web.Mvc;
 
 namespace WebPhone.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BasicController
     {
         // GET: Admin/Home
         public ActionResult Index()
-        {
+        {          
             return View();
         }
     }

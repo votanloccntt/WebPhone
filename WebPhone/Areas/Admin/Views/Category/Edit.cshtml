@@ -1,0 +1,67 @@
+﻿@model Models.EntityFramework.Category
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Category", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header card-header-primary card-header-text">
+                <div class="card-text">
+                    <h4 class="card-title">Cập nhật người dùng</h4>
+                </div>
+            </div>
+            <div class="card-body ">
+                <form class="form-horizontal">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Category_name, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            <div class="form-group bmd-form-group">
+                                @Html.EditorFor(model => model.Category_name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Category_name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @Html.LabelFor(model => model.Metta_title, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            <div class="form-group bmd-form-group">
+                                @Html.EditorFor(model => model.Metta_title, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Metta_title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @Html.LabelFor(model => model.Parent_id, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            <div class="form-group bmd-form-group">
+                                @Html.EditorFor(model => model.Parent_id, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Parent_id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @Html.LabelFor(model => model.Seo_title, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            <div class="form-group bmd-form-group">
+                                @Html.EditorFor(model => model.Seo_title, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Seo_title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                            <button type="submit" class="btn btn-fill btn-primary" value="Create">Thêm mới</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+

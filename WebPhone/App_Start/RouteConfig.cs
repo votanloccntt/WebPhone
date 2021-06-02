@@ -14,9 +14,24 @@ namespace WebPhone
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "About",
+               url: "gioi-thieu",
+               defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
+            );
+            routes.MapRoute(
+                name: "Category",
+                url: "danh-muc/{MetaTitle}-{categoryID}",
+                defaults: new { controller = "Category", action = "CategoryDetail", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
+            );
+            routes.MapRoute(
+                name: "Product",
+                url: "san-pham/{MetaTitle}-{productID}",
+                defaults: new { controller = "Product", action = "ProductDetail", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional}, namespaces: new[] { "WebPhone.Controllers" }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
             );
         }
     }

@@ -1,10 +1,5 @@
-﻿
-@{
-    Layout = null;
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -12,9 +7,6 @@
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="~/Assets/client/img/apple-icon.png">
     <link rel="icon" href="~/Assets/client/img/favicon.png">
-    <title>
-        Ecommerce &#45; Material Kit by Creative Tim
-    </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
@@ -24,186 +16,67 @@
     <link href="~/Assets/client/assets-for-demo/demo.css" rel="stylesheet" />
     <link href="~/Assets/client/assets-for-demo/vertical-nav.css" rel="stylesheet" />
 </head>
-
-<body class="ecommerce ">
-    <div class="header-3">
-        @RenderSection("header",required:false)
-    </div>
-    <div class="main main-raised">
+<body>
+    @{Html.RenderAction("MainMenu", "Home");}  
         @RenderBody()
-    </div>
     <!-- end-main-raised -->
-    <div class="section section-blog">
-        <div class="container">
-            <h2 class="section-title">Latest Articles</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card card-blog">
-                        <div class="card-header card-header-image">
-                            <a href="#pablo">
-                                <img src="~/Assets/client/img/dg6.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-category text-rose">Trends</h6>
-                            <h4 class="card-title">
-                                <a href="#pablo">Learn how to wear your scarf with a floral print shirt</a>
-                            </h4>
-                            <p class="card-description">
-                                Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                            </p>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-blog">
+                    <div class="card-header card-header-image">
+                        <a href="#pablo">
+                            <img src="~/Assets/client/img/examples/color1.jpg" alt="">
+                        </a>
+                        <div class="colored-shadow" style="        background-image: url(&quot;../../../../Assets/client/img/examples/color1.jpg&quot;);
+        opacity: 1;"></div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card card-blog">
-                        <div class="card-header card-header-image">
-                            <a href="#pablo">
-                                <img src="~/Assets/client/img/dg10.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-category text-rose">Fashion week</h6>
-                            <h4 class="card-title">
-                                <a href="#pablo">Katy Perry was wearing a Dolce &amp; Gabanna arc dress</a>
-                            </h4>
-                            <p class="card-description">
-                                Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card card-blog">
-                        <div class="card-header card-header-image">
-                            <a href="#pablo">
-                                <img src="~/Assets/client/img/dg9.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-category text-rose">Fashion week</h6>
-                            <h4 class="card-title">
-                                <a href="#pablo">Check the latest fashion events and which are the trends</a>
-                            </h4>
-                            <p class="card-description">
-                                Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                            </p>
-                        </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-warning">Dynamic Shadows</h6>
+                        <h4 class="card-title">
+                            <a href="#pablo">The image from this card is getting a yellow shadow</a>
+                        </h4>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- section -->
-    <div class="subscribe-line subscribe-line-image" data-parallax="true" style="background-image: url(&apos;~/Assets/client/img/examples/ecommerce-header.jpg&apos;);">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 ml-auto mr-auto">
-                    <div class="text-center">
-                        <h3 class="title">Subscribe to our Newsletter</h3>
-                        <p class="description">
-                            Join our newsletter and get news in your inbox every week! We hate spam too, so no worries about this.
-                        </p>
+            <div class="col-md-4">
+                <div class="card card-blog">
+                    <div class="card-header card-header-image">
+                        <a href="#pablo">
+                            <img src="~/Assets/client/img/examples/color2.jpg" alt="">
+                        </a>
+                        <div class="colored-shadow" style="        background-image: url(&quot;../../../../Assets/client/img/examples/color2.jpg&quot;);
+        opacity: 1;"></div>
                     </div>
-                    <div class="card card-raised card-form-horizontal">
-                        <div class="card-body">
-                            <form method="" action="">
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="material-icons">mail</i>
-                                                </span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Your Email...">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <button type="button" class="btn btn-rose btn-block">Subscribe</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-rose">Dynamic Shadows</h6>
+                        <h4 class="card-title">
+                            <a href="#pablo">The image from this card is getting a pink shadow</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-blog">
+                    <div class="card-header card-header-image">
+                        <a href="#pablo">
+                            <img src="~/Assets/client/img/examples/color3.jpg" alt="">
+                        </a>
+                        <div class="colored-shadow" style="        background-image: url(&quot;../../../../Assets/client/img/examples/color3.jpg&quot;);
+        opacity: 1;"></div>
+                    </div>
+                    <div class="card-body ">
+                        <h6 class="card-category text-info">Dynamic Shadows</h6>
+                        <h4 class="card-title">
+                            <a href="#pablo">The image from this card is getting a blue shadow</a>
+                        </h4>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <footer class="footer footer-black footer-big">
-        <div class="container">
-            <div class="content">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h5>About Us</h5>
-                        <p>Creative Tim is a startup that creates design tools that make the web development process faster and easier. </p>
-                        <p>We love the web and care deeply for how users interact with a digital product. We power businesses and individuals to create better looking web projects around the world. </p>
-                    </div>
-                    <div class="col-md-4">
-                        <h5>Social Feed</h5>
-                        <div class="social-feed">
-                            <div class="feed-line">
-                                <i class="fa fa-twitter"></i>
-                                <p>How to handle ethical disagreements with your clients.</p>
-                            </div>
-                            <div class="feed-line">
-                                <i class="fa fa-twitter"></i>
-                                <p>The tangible benefits of designing at 1x pixel density.</p>
-                            </div>
-                            <div class="feed-line">
-                                <i class="fa fa-facebook-square"></i>
-                                <p>A collection of 25 stunning sites that you can use for inspiration.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <h5>Instagram Feed</h5>
-                        <div class="gallery-feed">
-                            <img src="~/Assets/client/img/faces/card-profile6-square.jpg" class="img img-raised rounded" alt="">
-                            <img src="~/Assets/client/img/faces/christian.jpg" class="img img-raised rounded" alt="">
-                            <img src="~/Assets/client/img/faces/card-profile4-square.jpg" class="img img-raised rounded" alt="">
-                            <img src="~/Assets/client/img/faces/card-profile1-square.jpg" class="img img-raised rounded" alt="">
-                            <img src="~/Assets/client/img/faces/marc.jpg" class="img img-raised rounded" alt="">
-                            <img src="~/Assets/client/img/faces/kendall.jpg" class="img img-raised rounded" alt="">
-                            <img src="~/Assets/client/img/faces/card-profile5-square.jpg" class="img img-raised rounded" alt="">
-                            <img src="~/Assets/client/img/faces/card-profile2-square.jpg" class="img img-raised rounded" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <ul class="float-left">
-                <li>
-                    <a href="#pablo">
-                        Blog
-                    </a>
-                </li>
-                <li>
-                    <a href="#pablo">
-                        Presentation
-                    </a>
-                </li>
-                <li>
-                    <a href="#pablo">
-                        Discover
-                    </a>
-                </li>
-                <li>
-                    <a href="#pablo">
-                        Payment
-                    </a>
-                </li>
-                <li>
-                    <a href="#pablo">
-                        Contact Us
-                    </a>
-                </li>
-            </ul>
-            <div class="copyright float-right">
-                Copyright &#xA9;
-                <script>document.write(new Date().getFullYear())</script> Creative Tim All Rights Reserved.
-            </div>
-        </div>
+        @{ Html.RenderAction("Footer", "Home");}
     </footer>
     <!--   Core JS Files   -->
     <script src="~/Assets/client/js/core/jquery.min.js"></script>
@@ -233,30 +106,28 @@
     <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
     <script src="~/Assets/client/assets-for-demo/js/material-kit-demo.js"></script>
     <script>
-    $(document).ready(function () {
-
-            var slider2 = document.getElementById('sliderRefine');
-
-            noUiSlider.create(slider2, {
-                start: [101, 790],
-                connect: true,
-                range: {
-                    'min': [30],
-                    'max': [900]
+        $(document).ready(function () {
+            $("#flexiselDemo1").flexisel({
+                visibleItems: 4,
+                itemsToScroll: 1,
+                animationSpeed: 400,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 480,
+                        visibleItems: 3
+                    },
+                    landscape: {
+                        changePoint: 640,
+                        visibleItems: 3
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 3
+                    }
                 }
             });
-
-            var limitFieldMin = document.getElementById('price-left');
-            var limitFieldMax = document.getElementById('price-right');
-
-            slider2.noUiSlider.on('update', function (values, handle) {
-                if (handle) {
-                    limitFieldMax.innerHTML = $('#price-right').data('currency') + Math.round(values[handle]);
-                } else {
-                    limitFieldMin.innerHTML = $('#price-left').data('currency') + Math.round(values[handle]);
-                }
-            });
-        });</script>
+        });
+    </script>
 </body>
-
 </html>

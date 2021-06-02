@@ -1,0 +1,164 @@
+﻿@model PagedList.IPagedList<Models.EntityFramework.Phones>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-icon card-header-primary">
+            <div class="card-icon">
+                <i class="material-icons">assignment</i>
+            </div>
+            <h2 class="card-title text-primary text-center">SẢN PHẨM</h2>
+            <a href="/Admin/Phones/Create" class="btn btn-info btn-link">
+                <i class="material-icons">add</i>
+                Thêm sản phẩm
+            </a>
+        </div>
+        @using (Html.BeginForm("Index", "Phones", FormMethod.Get, new { @class = "navbar-form col-md-3 ml-auto" }))
+        {
+            <div class="input-group no-border">
+                <input type="text" value="@ViewBag.SearchString" name="searchString" class="form-control" placeholder="Tìm kiếm...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                </button>
+            </div>
+        }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <tr>
+                            <th class="text-center">
+                                Tên sản phẩm
+                            </th>
+                            <th class="text-center">
+                                Hình ảnh
+                            </th>
+                            <th class="text-center">
+                                Giá
+                            </th>
+                            <th class="text-center">
+                                Số lượng
+                            </th>
+                            <th class="text-center">
+                                Mành hình
+                            </th>
+                            <th class="text-center">
+                                Hệ điều hành
+                            </th>
+                            <th class="text-center">
+                                Camera sau
+                            </th>
+                            <th class="text-center">
+                                Camera trước
+                            </th>
+                            <th class="text-center">
+                                CHIP
+                            </th>
+                            <th class="text-center">
+                                RAM
+                            </th>
+                            <th class="text-center">
+                                Bộ nhớ trong
+                            </th>
+                            <th class="text-center">
+                                SIM
+                            </th>
+                            <th class="text-center">
+                                PIN
+                            </th>
+                            <th class="text-center">
+                                Sạc
+                            </th>
+                            <th class="text-center">
+                                Giá khuyến mãi
+                            </th>
+                            <th class="text-center">
+                                Bắt đầu KM
+                            </th>
+                            <th class="text-center">
+                                Kết thúc KM
+                            </th>
+                            <th class="text-center">
+                                Chức năng
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @item.Name_phone
+                                </td>
+                                <td class="text-center">
+                                    @item.Image
+                                </td>
+                                <td class="text-center">
+                                    @item.Price
+                                </td>
+                                <td class="text-center">
+                                    @item.Quantity
+                                </td>
+                                <td class="text-center">
+                                    @item.Screen
+                                </td>
+                                <td class="text-center">
+                                    @item.Operating_system
+                                </td>
+                                <td class="text-center">
+                                    @item.Rear_camera
+                                </td>
+                                <td class="text-center">
+                                    @item.Front_camera
+                                </td>
+                                <td class="text-center">
+                                    @item.Chip
+                                </td>
+                                <td class="text-center">
+                                    @item.Ram
+                                </td>
+                                <td class="text-center">
+                                    @item.Internal_memory
+                                </td>
+                                <td class="text-center">
+                                    @item.Sim
+                                </td>
+                                <td class="text-center">
+                                    @item.Pin
+                                </td>
+                                <td class="text-center">
+                                    @item.Charger
+                                </td>
+                                <td class="text-center">
+                                    @item.Promotion_price
+                                </td>
+                                <td class="text-center">
+                                    @item.Start_promotion
+                                </td>
+                                <td class="text-center">
+                                    @item.End_promotion
+                                </td>
+                                <td class="td-actions text-center">
+                                    <a href="Phones/Edit/@item.Phones_id" class="btn btn-success btn-link">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+
+                                    <a href="Phones/Delete/@item.Phones_id" class="btn btn-danger btn-link">
+                                        <i class="material-icons">close</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchstring = @ViewBag.SearchString }))
+            </div>
+        </div>
+    </div>
+</div>
+

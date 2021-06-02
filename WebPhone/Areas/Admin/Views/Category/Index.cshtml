@@ -1,0 +1,93 @@
+﻿@model PagedList.IPagedList<Models.EntityFramework.Category>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-icon card-header-primary">
+            <div class="card-icon">
+                <i class="material-icons">assignment</i>
+            </div>
+            <h2 class="card-title text-primary text-center">DANH MỤC SẢN PHẨM</h2>
+            <a href="/Admin/Category/Create" class="btn btn-info btn-link">
+                <i class="material-icons">add</i>
+                Thêm danh mục
+            </a>
+        </div>
+        @using (Html.BeginForm("Index", "Category", FormMethod.Get, new { @class = "navbar-form col-md-3 ml-auto" }))
+        {
+            <div class="input-group no-border">
+                <input type="text" value="@ViewBag.SearchString" name="searchString" class="form-control" placeholder="Tìm kiếm...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                </button>
+            </div>
+        }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <tr>
+                            <th class="text-center">
+                                ID danh mục
+                            </th>
+                            <th class="text-center">
+                                Tên danh mục
+                            </th>
+                            <th class="text-center">
+                                Meta title
+                            </th>
+                            <th class="text-center">
+                                Danh mục cha
+                            </th>
+                            <th class="text-center">
+                                Seo title
+                            </th>
+                            <th class="text-center">
+                                Chức năng
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td class="text-center">
+                                @item.Category_id
+                            </td>
+                            <td class="text-center">
+                                @item.Category_name
+                            </td>
+                            <td class="text-center">
+                                @item.Metta_title
+                            </td>
+                            <td class="text-center">
+                                @item.Parent_id
+                            </td>
+                            <td class="text-center">
+                                @item.Seo_title
+                            </td>
+                            <td class="td-actions text-center">
+                                <a href="Category/Edit/@item.Category_id" class="btn btn-success btn-link">
+                                    <i class="material-icons">edit</i>
+                                </a>
+
+                                <a href="Category/Delete/@item.Category_id" class="btn btn-danger btn-link">
+                                    <i class="material-icons">close</i>
+                                </a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchstring = @ViewBag.SearchString }))
+            </div>
+        </div>
+    </div>
+</div>
+

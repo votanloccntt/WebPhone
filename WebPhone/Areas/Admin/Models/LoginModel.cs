@@ -9,8 +9,10 @@ namespace WebPhone.Areas.Admin.Models
     public class LoginModel
     {
         [Required]
-        public string UserName { set; get; }
-        public string Password { set; get; }
-        public string RememberMe { set; get; }
+        public string Username { get; set; }
+
+        public string Password { get; set; }
+
+        public bool Rememberme { get; set; }
     }
 }

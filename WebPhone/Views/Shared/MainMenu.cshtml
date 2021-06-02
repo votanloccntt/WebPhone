@@ -1,0 +1,101 @@
+﻿@model List<Models.EntityFramework.Menu>
+<div class="header">
+    <div class="container">
+        <nav class="navbar navbar-color-on-scroll navbar-transparent bg-primary fixed-top navbar-expand-lg">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    @foreach (var item in Model)
+                    {
+                        <li class="nav-item">
+                            <a href="@item.Link" target="@item.Target" class="nav-link">
+                                @item.Text
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="page-header header-filter" data-parallax="true" style="background-image: url('../../Assets/client/img/slide/slide1.png');">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 text-left">
+                                <h1 class="title">ANDROID</h1>
+                                <h4>Dolce &amp; Gabbana is a luxury Italian fashion house founded in 1985 in Legnano by Italian designers Domenico Dolce and Stefano Gabbana. The two met in Milan in 1980 and designed for the same fashion house.</h4>
+                                <br>
+                                <div class="buttons">
+                                    <a href="" class="btn btn-outline-primary btn-lg">
+                                        Read More
+                                    </a>
+                                    <a href="" class="btn btn-just-icon btn-white btn-link">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="" class="btn btn-just-icon btn-white btn-link">
+                                        <i class="fa fa-facebook-square"></i>
+                                    </a>
+                                    <a href="" class="btn btn-just-icon btn-white btn-link">
+                                        <i class="fa fa-get-pocket"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="page-header header-filter" data-parallax="true" style="        background-image: url('../../Assets/client/img/slide/slide2.jpg');">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto text-center">
+                                <h1 class="title">IOS</h1>
+                                <h4>Dolce &amp; Gabbana is a luxury Italian fashion house founded in 1985 in Legnano by Italian designers Domenico Dolce and Stefano Gabbana. The two met in Milan in 1980 and designed for the same fashion house.</h4>
+                                <br>
+                                <h6>Connect with us on:</h6>
+                                <div class="buttons">
+                                    <a href="#pablo" class="btn btn-just-icon btn-white btn-link btn-lg">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="#pablo" class="btn btn-just-icon btn-white btn-link btn-lg">
+                                        <i class="fa fa-facebook-square"></i>
+                                    </a>
+                                    <a href="#pablo" class="btn btn-just-icon btn-white btn-link btn-lg">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                    <a href="#pablo" class="btn btn-just-icon btn-white btn-link btn-lg">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="page-header header-filter" data-parallax="true" style="        background-image: url('../../Assets/client/img/slide/slide3.jpg');
+">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 ml-auto text-right">
+                                <h1 class="title">WINDOWS PHONE</h1>
+                                <h4>There's no doubt that Tesla is delighted with the interest, but the data also raises a few questions. How long will it take for Tesla to fulfill all those extra orders?</h4>
+                                <br>
+                                <div class="buttons">
+                                    <a href="#pablo" class="btn btn-white btn-link btn-lg">
+                                        <i class="material-icons">share</i> Share Offer
+                                    </a>
+                                    <a href="#pablo" class="btn btn-outline-primary btn-lg">
+                                        <i class="material-icons">shopping_cart</i> Shop Now
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
