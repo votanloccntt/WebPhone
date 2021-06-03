@@ -121,7 +121,7 @@
     <Content Include="Assets\admin\img\flags\US.png" />
     <Content Include="Assets\admin\img\image_placeholder.jpg" />
     <Content Include="Assets\admin\img\lock.jpg" />
-    <Content Include="Assets\admin\img\login.jpg" />
+    <Content Include="Assets\admin\img\login.png" />
     <Content Include="Assets\admin\img\placeholder.jpg" />
     <Content Include="Assets\admin\img\product1.jpg" />
     <Content Include="Assets\admin\img\product2.jpg" />

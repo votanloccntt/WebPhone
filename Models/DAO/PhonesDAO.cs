@@ -23,6 +23,15 @@ namespace Models.DAO
         {
             return db.Phones.OrderBy(x => x.Promotion_price ).Take(top).ToList();
         }
+        public List<Phones> ListRelatedProduct(int productId)
+        {
+            var product = db.Phones.Find(productId);
+            return db.Phones.Where(x => x.Phones_id != productId && x.Category_id == product.Category_id).ToList();          
+        }
+        public List<Phones> ListByCategoryId(int categoryID)
+        {
+            return db.Phones.Where(x => x.Category_id == categoryID).ToList();
+        }
         public IEnumerable<Phones> ListAllPaging(string sreachString, int page, int pageSize)
         {
             IQueryable<Phones> model = db.Phones;
@@ -87,5 +96,6 @@ namespace Models.DAO
             }
 
         }
+
     }
 }

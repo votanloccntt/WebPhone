@@ -17,7 +17,8 @@ namespace WebPhone.Controllers
         public ActionResult ProductDetail(int productID)
         {
             var product = new PhonesDAO().ViewDetail(productID);
-            ViewBag.Product = new PhonesDAO().ViewDetail(product.Phones_id);
+            ViewBag.Product = new PhonesDAO().ViewDetail(product.Category_id.Value);
+            ViewBag.RelatedProducts = new PhonesDAO().ListRelatedProduct(productID);
             return View(product);
         }
     }

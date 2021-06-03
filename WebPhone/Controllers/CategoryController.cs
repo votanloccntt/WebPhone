@@ -23,7 +23,9 @@ namespace WebPhone.Controllers
         public ActionResult CategoryDetail(int categoryID)
         {
             var category = new CategoryDAO().ViewDetail(categoryID);
-            return View(category);
+            ViewBag.Category = category;
+            var model = new PhonesDAO().ListByCategoryId(categoryID);
+            return View(model);
         }
     }
 }

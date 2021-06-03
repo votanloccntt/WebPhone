@@ -6,7 +6,7 @@
 }
 <div class="ecommerce">
     <div class="main main-raised">
-        @{ Html.RenderAction("Category", "Category");}
+        @{ Html.RenderAction("Category","Category");}
         <div class="section">
             <div class="container-fluid">
                 <h2 class="section-title">Sản phẩm mới</h2>
@@ -32,7 +32,7 @@
                                             <div class="price-container">
                                                 <span class="price">@(item.Price.HasValue?@item.Price.Value.ToString("N0"):"Liên hệ")</span>
                                             </div>
-                                            <button class="btn btn-rose btn-link btn-fab btn-fab-mini btn-round pull-right" rel="tooltip" title="" data-placement="left" data-original-title="Thêm vào giỏ">
+                                            <button class="btn btn-danger btn-link btn-fab btn-fab-mini" rel="tooltip" data-placement="bottom" data-original-title="Thêm vào giỏ">
                                                 <i class="material-icons">add_shopping_cart</i>
                                             </button>
                                         </div>
@@ -69,7 +69,7 @@
                                         <span class="price price-old">@(item.Price.HasValue?@item.Price.Value.ToString("N0"):"Liên hệ")</span>
                                         <span class="price price-new"> @(item.Promotion_price.HasValue?@item.Promotion_price.Value.ToString("N0"):"Liên hệ")</span>
                                     </div>
-                                    <button class="btn btn-rose btn-link btn-fab btn-fab-mini btn-round pull-right" rel="tooltip" title="" data-placement="left" data-original-title="Thêm vào giỏ">
+                                    <button class="btn btn-danger btn-link btn-fab btn-fab-mini" rel="tooltip" data-placement="bottom" data-original-title="Thêm vào giỏ">
                                         <i class="material-icons">add_shopping_cart</i>
                                     </button>
                                 </div>
