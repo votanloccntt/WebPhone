@@ -14,10 +14,30 @@ namespace WebPhone
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Add Cart",
+                url: "them-gio-hang",
+                defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
+            );
+            routes.MapRoute(
                name: "About",
                url: "gioi-thieu",
                defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
             );
+            routes.MapRoute(
+              name: "Cart",
+              url: "gio-hang",
+              defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
+           );
+            routes.MapRoute(
+              name: "Payment",
+              url: "thanh-toan",
+              defaults: new { controller = "Cart", action = "Payment", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
+           );
+            routes.MapRoute(
+              name: "Payment Success",
+              url: "hoan-thanh",
+              defaults: new { controller = "Cart", action = "Success", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
+           );
             routes.MapRoute(
                 name: "Category",
                 url: "danh-muc/{MetaTitle}-{categoryID}",

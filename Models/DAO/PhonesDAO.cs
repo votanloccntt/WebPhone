@@ -21,7 +21,7 @@ namespace Models.DAO
         }
         public List<Phones> ListPromotionProduct(int top)
         {
-            return db.Phones.OrderBy(x => x.Promotion_price ).Take(top).ToList();
+            return db.Phones.OrderByDescending(x => x.Promotion_price).Take(top).ToList();
         }
         public List<Phones> ListRelatedProduct(int productId)
         {

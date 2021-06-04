@@ -17,7 +17,7 @@
     <link href="~/Assets/client/assets-for-demo/vertical-nav.css" rel="stylesheet" />
 </head>
 <body>
-    @{Html.RenderAction("MainMenu", "Home");}
+    @{Html.RenderAction("MainMenu", "Home");}      
     @RenderBody()
     <!-- end-main-raised -->
     <div class="container">
@@ -75,9 +75,7 @@
             </div>
         </div>
     </div>
-    <footer class="footer footer-black footer-big">
-        @{ Html.RenderAction("Footer", "Home");}
-    </footer>
+    @{ Html.RenderAction("Footer", "Home");}
     <!--   Core JS Files   -->
     <script src="~/Assets/client/js/core/jquery.min.js"></script>
     <script src="~/Assets/client/js/core/popper.min.js"></script>
@@ -129,5 +127,6 @@
             });
         });
     </script>
+    @RenderSection("JsFooter", required: false)
 </body>
 </html>

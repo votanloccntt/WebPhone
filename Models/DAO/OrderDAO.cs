@@ -15,6 +15,12 @@ namespace Models.DAO
         {
             db = new WebPhoneDbContext();
         }
+        public int Insert(Order order)
+        {
+            db.Order.Add(order);
+            db.SaveChanges();
+            return order.Order_id;
+        }
         public IEnumerable<Order> ListAllPaging(string sreachString, int page, int pageSize)
         {
             IQueryable<Order> model = db.Order;

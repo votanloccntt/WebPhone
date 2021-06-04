@@ -1,0 +1,84 @@
+﻿@model List<WebPhone.Models.CartItem>
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ecommerce">
+    <div class="main main-raised">
+        <div class="row">
+            <div class="col-md-12">
+                <center><h2>GIỎ HÀNG</h2></center>
+            </div>
+            <div class="col-lg-12 col-md-12 ml-auto mr-auto">
+                <div class="table-responsive">
+                    <table class="table table-shopping">
+                        <thead>
+                            <tr>
+                                <th class="th-description text-center text-primary">Mã sản phẩm</th>
+                                <th class="th-description text-center text-primary">Tên sản phẩm</th>
+                                <th class="th-description text-center text-primary">Ảnh sản phẩm</th>
+                                <th class="th-description text-center text-primary">Số lượng</th>
+                                <th class="th-description text-center text-primary">Đơn giá</th>
+                                <th class="th-description text-center text-primary">Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="td-number text-center">@item.Phones.Phones_id</td>
+                                    <td class="td-name text-center">@item.Phones.Name_phone</td>
+                                    <td class="text-center"><img src="@item.Phones.Image" width="100" /></td>
+                                    <td class="td-number text-center">@item.Quantity</td>
+                                    <td class="td-number text-center">@item.Phones.Price.GetValueOrDefault(0).ToString("N0")</td>
+                                    <td class="td-number text-center text-danger">@((item.Phones.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                                    <td class="td-actions">
+                                        <button id="btnDelete" data-id="@item.Phones.Phones_id" class="btn btn-link btn-danger" rel="tooltip" data-placement="top" data-original-title="Hoàn tác">
+                                            <i class="material-icons">close</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6 ml-auto mr-auto">
+                <div class="card ">
+                    <div class="card-header card-header-primary card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">mail_outline</i>
+                        </div>
+                        <h4 class="card-title">Đơn hàng</h4>
+                    </div>
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+                        {
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">Người nhận</label>
+                                <input name="cusname" class="form-control">
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">Điện thoại</label>
+                                <input name="cusphone" class="form-control">
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">Địa chỉ</label>
+                                <input name="address" class="form-control">
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">Email</label>
+                                <input name="email" type="email" class="form-control">
+                            </div>
+                        }
+                    </div>
+                    <div class="card-footer ">
+                        <button type="submit" class="btn btn-fill btn-primary">Gửi đơn hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

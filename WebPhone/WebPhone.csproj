@@ -363,7 +363,11 @@
     <Content Include="Assets\client\img\logo.png" />
     <Content Include="Assets\client\img\office2.jpg" />
     <Content Include="Assets\client\img\phones\iphone12-64gb.jpg" />
+    <Content Include="Assets\client\img\phones\nokia-54.jpg" />
+    <Content Include="Assets\client\img\phones\oppo-a93.jpg" />
+    <Content Include="Assets\client\img\phones\realme-6-pro.jpg" />
     <Content Include="Assets\client\img\phones\samsung-galaxy-s21-5g.jpg" />
+    <Content Include="Assets\client\img\phones\vivo-y51.jpg" />
     <Content Include="Assets\client\img\phones\xiaomi-redmi-9t.jpg" />
     <Content Include="Assets\client\img\placeholder.jpg" />
     <Content Include="Assets\client\img\product1.jpg" />
@@ -376,6 +380,7 @@
     <Content Include="Assets\client\img\slide\slide3.jpg" />
     <Content Include="Assets\client\js\bootstrap-material-design.js" />
     <Content Include="Assets\client\js\bootstrap-material-design.min.js" />
+    <Content Include="Assets\client\js\controller\cartController.js" />
     <Content Include="Assets\client\js\core\jquery.min.js" />
     <Content Include="Assets\client\js\core\popper.min.js" />
     <Content Include="Assets\client\js\material-kit.js" />
@@ -414,13 +419,16 @@
     <Compile Include="Areas\Admin\Controllers\PhonesController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -628,6 +636,10 @@
     <Content Include="Views\Category\CategoryDetail.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\Success.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -637,7 +649,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj">
