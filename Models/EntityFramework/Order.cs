@@ -31,9 +31,6 @@ namespace Models.EntityFramework
         [StringLength(255)]
         public string Delivery_address { get; set; }
 
-        [StringLength(255)]
-        public string Note { get; set; }
-
         public virtual Customer Customer { get; set; }
 
         public virtual Deliverer Deliverer { get; set; }

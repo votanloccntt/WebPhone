@@ -31,13 +31,8 @@
                                     <td class="td-name text-center">@item.Phones.Name_phone</td>
                                     <td class="text-center"><img src="@item.Phones.Image" width="100" /></td>
                                     <td class="td-number text-center">@item.Quantity</td>
-                                    <td class="td-number text-center">@item.Phones.Price.GetValueOrDefault(0).ToString("N0")</td>
-                                    <td class="td-number text-center text-danger">@((item.Phones.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
-                                    <td class="td-actions">
-                                        <button id="btnDelete" data-id="@item.Phones.Phones_id" class="btn btn-link btn-danger" rel="tooltip" data-placement="top" data-original-title="Hoàn tác">
-                                            <i class="material-icons">close</i>
-                                        </button>
-                                    </td>
+                                    <td class="td-number text-center">@((item.Phones.Promotion_price.HasValue? item.Phones.Promotion_price.GetValueOrDefault(0).ToString("N0"):item.Phones.Price.GetValueOrDefault(0).ToString("N0")))</td>
+                                    <td class="td-number text-center text-danger">@((item.Phones.Promotion_price.HasValue? (item.Phones.Promotion_price.GetValueOrDefault(0) * item.Quantity).ToString("N0"):(item.Phones.Price.GetValueOrDefault(0)*item.Quantity).ToString("N0")))</td>                                  
                                 </tr>
                             }
                         </tbody>
@@ -65,16 +60,16 @@
                             </div>
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">Địa chỉ</label>
-                                <input name="address" class="form-control">
+                                <input name="cusaddress" class="form-control">
                             </div>
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">Email</label>
-                                <input name="email" type="email" class="form-control">
+                                <input name="cusemail" type="email" class="form-control">
+                            </div>
+                            <div class="card-footer ">
+                                <button type="submit" class="btn btn-fill btn-primary">Gửi đơn hàng</button>
                             </div>
                         }
-                    </div>
-                    <div class="card-footer ">
-                        <button type="submit" class="btn btn-fill btn-primary">Gửi đơn hàng</button>
                     </div>
                 </div>
             </div>

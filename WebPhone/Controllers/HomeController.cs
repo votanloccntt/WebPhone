@@ -15,8 +15,8 @@ namespace WebPhone.Controllers
         public ActionResult Index()
         {
             var phonesDAO = new PhonesDAO();
-            ViewBag.ListNewProducts = phonesDAO.ListNewProduct(3);
-            ViewBag.ListPromotionProducts = phonesDAO.ListPromotionProduct(3);
+            ViewBag.ListNewProducts = phonesDAO.ListNewProduct(6);
+            ViewBag.ListPromotionProducts = phonesDAO.ListPromotionProduct(6);
             return View();
         }
         [ChildActionOnly]

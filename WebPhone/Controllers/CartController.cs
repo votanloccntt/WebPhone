@@ -84,18 +84,30 @@ namespace WebPhone.Controllers
         }
 
         [HttpPost]
-        public ActionResult Payment(string cusname, string cusphone, string address, string email)
+        public ActionResult Payment(string cusname, string cusphone, string cusaddress, string cusemail)
         {
-            var order = new Order();
-            order.Create_date = DateTime.Now;
-            order.Delivery_address = address;
-            order.Customer.Customer_phone = cusphone;
-            order.Customer.Customer_name = cusname;
-            order.Customer.Customer_mail = email;
-
-
-            var id = new OrderDAO().Insert(order);
             var cart = (List<CartItem>)Session[CartSession];
+            var customer = new Customer();
+            var order = new Order();
+            foreach(var item in cart)
+            {
+                if(item.Phones.Promotion_price==null)
+                {
+                    order.Total_price = item.Phones.Price * item.Quantity;
+                }
+                else
+                {
+                    order.Total_price = item.Phones.Promotion_price * item.Quantity;
+                }
+            }    
+            order.Create_date = DateTime.Now;
+            order.Delivery_address = cusaddress;
+            customer.Customer_phone = cusphone;
+            customer.Customer_name = cusname;
+            customer.Customer_mail = cusemail;
+            var customerid = new CustomerDAO().Insert(customer);
+            order.Customer_id = customer.Customer_id;
+            var id = new OrderDAO().Insert(order);          
             var detailDAO = new OrderDetailDAO();
             foreach (var item in cart)
             {

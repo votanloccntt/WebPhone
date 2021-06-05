@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="card-footer justify-content-center">
                                     <div class="price-container">
-                                        <span class="price text-danger">@(item.Price.HasValue?@item.Price.Value.ToString("N0"):"Liên hệ")</span>
+                                        <span class="price text-danger">@(item.Promotion_price.HasValue?@item.Promotion_price.Value.ToString("N0"): @item.Price.Value.ToString("N0"))</span>
                                     </div>
                                     <button class="btn btn-danger btn-link btn-fab btn-fab-mini" rel="tooltip" data-placement="bottom" data-original-title="Thêm vào giỏ">
                                         <i class="material-icons">add_shopping_cart</i>

@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <h2 class="title"> @Model.Name_phone </h2>
-                    <h3 class="main-price text-danger">@(Model.Price.HasValue? Model.Price.Value.ToString("N0"):"Liên hệ")</h3>
+                    <h3 class="main-price text-danger">@(Model.Promotion_price.HasValue? Model.Promotion_price.Value.ToString("N0"): Model.Price.Value.ToString("N0"))</h3>
                     <div>
                         <div class="card card-collapse">
                             <div class="card-header">
