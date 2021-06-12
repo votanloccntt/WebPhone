@@ -44,7 +44,7 @@ namespace Models.DAO
             }
             return model.OrderBy(x => x.Phones_id).ToPagedList(page, pageSize);
         }
-        public long Insert(Phones entity)
+        public int Insert(Phones entity)
         {
             db.Phones.Add(entity);
             db.SaveChanges();

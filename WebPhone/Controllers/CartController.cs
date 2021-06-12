@@ -110,11 +110,18 @@ namespace WebPhone.Controllers
             var id = new OrderDAO().Insert(order);          
             var detailDAO = new OrderDetailDAO();
             foreach (var item in cart)
-            {
+            {             
                 var orderDetail = new Order_detail();
                 orderDetail.Phones_id = item.Phones.Phones_id;
                 orderDetail.Order_id = id;
-                orderDetail.Price = item.Phones.Price;
+                if(item.Phones.Promotion_price==null)
+                {
+                    orderDetail.Price = item.Phones.Price;
+                }
+                else
+                {
+                    orderDetail.Price = item.Phones.Promotion_price;
+                }                
                 orderDetail.Sale_quantity = item.Quantity;
                 detailDAO.Insert(orderDetail);
             }

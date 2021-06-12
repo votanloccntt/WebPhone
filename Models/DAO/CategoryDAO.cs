@@ -28,7 +28,7 @@ namespace Models.DAO
         }
         public List<Category>ListAll()
         {
-            return db.Category.OrderBy(x => x.Display_order).ToList();
+            return db.Category.OrderBy(x => x.Category_id).ToList();
         }
         public long Insert(Category entity)
         {

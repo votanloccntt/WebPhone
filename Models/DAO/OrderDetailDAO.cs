@@ -15,7 +15,6 @@ namespace Models.DAO
         {
             db = new WebPhoneDbContext();
         }
-
         public bool Insert(Order_detail detail)
         {
             try
@@ -28,6 +27,24 @@ namespace Models.DAO
             {
                 return false;
             }
+        }
+        public Order_detail ViewDetail(int id)
+        {
+            return db.Order_detail.Find(id);
+        }
+        public bool ViewOrder(Order_detail entity)
+        {
+            var order_detail = db.Order_detail.Find(entity.Order_id);
+            order_detail.Order.Customer.Customer_name = entity.Order.Customer.Customer_name;
+            order_detail.Order.Customer.Customer_phone = entity.Order.Customer.Customer_phone;
+            order_detail.Order.Customer.Customer_mail = entity.Order.Customer.Customer_mail;
+            order_detail.Order.Delivery_address = entity.Order.Delivery_address;
+            order_detail.Phones.Name_phone = entity.Phones.Name_phone;
+            order_detail.Sale_quantity = entity.Sale_quantity;
+            order_detail.Price = entity.Price;
+            order_detail.Order.Total_price = entity.Order.Total_price;
+            db.SaveChanges();
+            return true;
         }
 
     }

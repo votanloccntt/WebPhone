@@ -12,7 +12,7 @@
             <div class="card-icon">
                 <i class="material-icons">assignment</i>
             </div>
-            <h2 class="card-title text-primary text-center">HÓA ĐƠN</h2>          
+            <h2 class="card-title text-primary text-center">HÓA ĐƠN</h2>
         </div>
         @using (Html.BeginForm("Index", "Order", FormMethod.Get, new { @class = "navbar-form col-md-3 ml-auto" }))
         {
@@ -30,16 +30,16 @@
                     <thead class=" text-primary">
                         <tr>
                             <th class="text-center">
-                                Tên khách hàng
+                                Mã hóa đơn
+                            </th>
+                            <th class="text-center">
+                                Ngày tạo
                             </th>
                             <th class="text-center">
                                 Nơi nhận hàng
                             </th>
                             <th class="text-center">
                                 Tổng tiền
-                            </th>
-                            <th class="text-center">
-                                Tình trạng
                             </th>
                             <th class="text-center">
                                 Chi tiết hóa đơn
@@ -49,25 +49,25 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td class="text-center">
-                                @item.Customer.Customer_name
-                            </td>
-                            <td class="text-center">
-                                @item.Delivery_address
-                            </td>
-                            <td class="text-center">
-                                @item.Total_price
-                            </td>
-                            <td class="text-center">
-                                @item.Status.Status1
-                            </td>
-                            <td class="td-actions text-center">
-                                <a href="Order/Detail/@item.Order_id" class="btn btn-warning btn-link">
-                                    <i class="material-icons">description</i>
-                                </a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td class="text-center">
+                                    @item.Order_id
+                                </td>
+                                <td class="text-center">
+                                    @item.Create_date
+                                </td>
+                                <td class="text-center">
+                                    @item.Delivery_address
+                                </td>
+                                <td class="text-center">
+                                    @item.Total_price
+                                </td>
+                                <td class="td-actions text-center">
+                                    <a href="Order/Detail/@item.Order_id" class="btn btn-warning btn-link">
+                                        <i class="material-icons">description</i>
+                                    </a>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>

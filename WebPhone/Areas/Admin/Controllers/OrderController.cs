@@ -20,26 +20,8 @@ namespace WebPhone.Areas.Admin.Controllers
         }
         public ActionResult Detail(int id)
         {
-            var order_detail = new OrderDAO().ViewDetail(id);
+            var order_detail = new OrderDetailDAO().ViewDetail(id);
             return View(order_detail);
-        }
-        [HttpPost]
-        public ActionResult Detail(Order_detail order_detail)
-        {
-            if (ModelState.IsValid)
-            {
-                var dao = new OrderDAO();
-                var result = dao.ViewOrder(order_detail);
-                if (result)
-                {
-                    return RedirectToAction("Index", "Order");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Cập nhật đơn hàng thành công");
-                }
-            }
-            return View("Index");
         }
     }
 }

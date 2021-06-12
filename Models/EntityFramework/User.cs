@@ -20,5 +20,14 @@ namespace Models.EntityFramework
 
         [StringLength(25)]
         public string Name { get; set; }
+        [StringLength(50)]
+        public string Email { get; set; }
+        [StringLength(50)]
+        public string Address { get; set; }
+        [StringLength(15)]
+        public string Phone { get; set; }
+        [StringLength(10)]
+        public string Type { get; set; }
+
     }
 }

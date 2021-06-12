@@ -76,5 +76,13 @@ namespace Models.DAO
                 db.Database.SqlQuery<bool>("Sp_Account_Login @UserName, @PassWord", sqlParams).SingleOrDefault();
             return res;
         }
+        public bool CheckUserName(string userName)
+        {
+            return db.User.Count(x => x.Username == userName) > 0;
+        }
+        public bool CheckEmail(string email)
+        {
+            return db.User.Count(x => x.Email == email) > 0;
+        }
     }
 }
