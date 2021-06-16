@@ -31,6 +31,5 @@ namespace Models.DAO
             }
             return model.OrderBy(x => x.Order_id).ToPagedList(page, pageSize);
         }
-     
     }
 }

@@ -42,6 +42,18 @@
                                 Tên
                             </th>
                             <th class="text-center">
+                                Địa chỉ
+                            </th>
+                            <th class="text-center">
+                                Thư điện tử
+                            </th>
+                            <th class="text-center">
+                                Số điện thoại
+                            </th>
+                            <th class="text-center">
+                                Người dùng
+                            </th>
+                            <th class="text-center">
                                 Chức năng
                             </th>
                         </tr>
@@ -49,26 +61,38 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td class="text-center">
-                                    @item.Username
-                                </td>
-                                <td class="text-center">
-                                    @item.Password
-                                </td>
-                                <td class="text-center">
-                                    @item.Name
-                                </td>                              
-                                <td class="td-actions text-center">
-                                    <a href="User/Edit/@item.User_id" class="btn btn-success btn-link">
-                                        <i class="material-icons">edit</i>
-                                    </a>
+                        <tr>
+                            <td class="text-center">
+                                @item.Username
+                            </td>
+                            <td class="text-center">
+                                @item.Password
+                            </td>
+                            <td class="text-center">
+                                @item.Name
+                            </td>
+                            <td class="text-center">
+                                @item.Address
+                            </td>
+                            <td class="text-center">
+                                @item.Email
+                            </td>
+                            <td class="text-center">
+                                @item.Phone
+                            </td>
+                            <td class="text-center">
+                                @item.Type
+                            </td>
+                            <td class="td-actions text-center">
+                                <a href="User/Edit/@item.User_id" class="btn btn-success btn-link">
+                                    <i class="material-icons">edit</i>
+                                </a>
 
-                                    <a href="User/Delete/@item.User_id" class="btn btn-danger btn-link">
-                                        <i class="material-icons">close</i>
-                                    </a>
-                                </td>
-                            </tr>
+                                <a href="User/Delete/@item.User_id" class="btn btn-danger btn-link">
+                                    <i class="material-icons">close</i>
+                                </a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>

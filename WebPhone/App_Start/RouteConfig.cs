@@ -18,12 +18,7 @@ namespace WebPhone
                 name: "Add Cart",
                 url: "them-gio-hang",
                 defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
-            );
-            routes.MapRoute(
-                name: "Register",
-                url: "dang-ky",
-                defaults: new { area = "Admin", controller = "Register", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Areas.Admin.Controllers" }
-            );
+            );            
             routes.MapRoute(
                 name: "Contact",
                 url: "lien-he",

@@ -11,6 +11,5 @@ namespace WebPhone.Models
     {      
         public Phones Phones { set; get; }
         public int Quantity { set; get; }
-
     }
 }

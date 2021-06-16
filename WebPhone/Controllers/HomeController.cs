@@ -27,6 +27,13 @@ namespace WebPhone.Controllers
 
         }
         [ChildActionOnly]
+        public ActionResult RightMenu()
+        {
+            var model = new MenuDAO().ListByGroupId(2);
+            return PartialView(model);
+
+        }
+        [ChildActionOnly]
         public PartialViewResult HeaderCart()
         {
             var cart = Session[CommonConstants.CartSession];

@@ -8,9 +8,9 @@ using System.Web.Mvc;
 
 namespace WebPhone.Areas.Admin.Controllers
 {
-    public class PhonesController : BasicController
+    public class PhonesController : BaseController
     {
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 3)
         {
             var dao = new PhonesDAO();
             var model = dao.ListAllPaging(searchString, page, pageSize);

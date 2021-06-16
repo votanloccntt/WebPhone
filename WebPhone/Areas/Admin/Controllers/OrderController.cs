@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace WebPhone.Areas.Admin.Controllers
 {
-    public class OrderController : BasicController
+    public class OrderController : BaseController
     {
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {

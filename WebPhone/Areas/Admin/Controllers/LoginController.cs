@@ -6,38 +6,52 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using WebPhone.Areas.Admin.Commons;
 using WebPhone.Areas.Admin.Models;
+using WebPhone.Common;
 
 namespace WebPhone.Areas.Admin.Controllers
 {
     public class LoginController : Controller
     {
         // GET: Admin/Login
-        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Index(LoginModel model)
+        public ActionResult Login(LoginModel model)
         {
-            
-            if(Membership.ValidateUser(model.Username,model.Password) && ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(model.Username,model.Rememberme);
-                return RedirectToAction("Index", "Home");
+                var dao = new UserDAO();
+                var result = dao.Login(model.Username, Encryptor.MD5Hash(model.Password));
+                if (result == 1)
+                {
+                    var user = dao.GetById(model.Username);
+                    var userSession = new UserLogin();
+                    userSession.UserName = user.Username;
+                    userSession.UserID = user.User_id;
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    if (user.Type == "admin")
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        return Redirect("/");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Tài khoản hoặc mật khẩu không đúng.");
+                }
             }
-            else
-            {
-                ModelState.AddModelError("",string.Format("Tài khoản hoặc mật khẩu không đúng."));
-            }
-            return View(model);
+            return View("Index");
         }
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            Session.Clear();
+            return Redirect("/");
         }
     }
 }

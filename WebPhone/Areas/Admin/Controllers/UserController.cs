@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebPhone.Areas.Admin.Commons;
 
 namespace WebPhone.Areas.Admin.Controllers
 {
-    public class UserController : BasicController
+    public class UserController : BaseController
     {
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
@@ -34,6 +35,8 @@ namespace WebPhone.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDAO();
+                var encrytedMd5Pas = Encryptor.MD5Hash(user.Password);
+                user.Password = encrytedMd5Pas;
                 long id = dao.Insert(user);
                 if (id > 0)
                 {
@@ -52,6 +55,8 @@ namespace WebPhone.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDAO();
+                var encrytedMd5Pas = Encryptor.MD5Hash(user.Password);
+                user.Password = encrytedMd5Pas;
                 var result = dao.Update(user);
                 if (result)
                 {

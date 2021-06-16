@@ -65,16 +65,17 @@ namespace Models.DAO
             }
 
         }
-        public bool Login(string userName, string passWord)
+        public int Login(string userName, string passWord)
         {
-            object[] sqlParams =
+            var result = db.User.SingleOrDefault(x => x.Username == userName);
+            if(result == null)
             {
-                new SqlParameter("@UserName", userName),
-                new SqlParameter("@PassWord",passWord),
-            };
-            var res =
-                db.Database.SqlQuery<bool>("Sp_Account_Login @UserName, @PassWord", sqlParams).SingleOrDefault();
-            return res;
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
         }
         public bool CheckUserName(string userName)
         {

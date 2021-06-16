@@ -32,7 +32,7 @@
                                     <td class="text-center"><img src="@item.Phones.Image" width="100" /></td>
                                     <td class="td-number text-center">@item.Quantity</td>
                                     <td class="td-number text-center">@((item.Phones.Promotion_price.HasValue? item.Phones.Promotion_price.GetValueOrDefault(0).ToString("N0"):item.Phones.Price.GetValueOrDefault(0).ToString("N0")))</td>
-                                    <td class="td-number text-center text-danger">@((item.Phones.Promotion_price.HasValue? (item.Phones.Promotion_price.GetValueOrDefault(0) * item.Quantity).ToString("N0"):(item.Phones.Price.GetValueOrDefault(0)*item.Quantity).ToString("N0")))</td>                                  
+                                    <td class="td-number text-center text-danger">@((item.Phones.Promotion_price.HasValue? (item.Phones.Promotion_price.GetValueOrDefault(0) * item.Quantity).ToString("N0"):(item.Phones.Price.GetValueOrDefault(0)*item.Quantity).ToString("N0")))</td>
                                 </tr>
                             }
                         </tbody>
@@ -50,24 +50,24 @@
                     <div class="card-body">
                         @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
                         {
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-floating">Người nhận</label>
-                            <input class="form-control" name="cusname" required="required">
-                        </div>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-floating">Điện thoại</label>
-                            <input class="form-control" name="cusphone" required pattern="[0-9]+">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">Người nhận</label>
+                                <input class="form-control" name="cusname" required="required">
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">Điện thoại</label>
+                                <input class="form-control" name="cusphone" required pattern="[0-9]+">
 
-                        </div>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-floating">Địa chỉ</label>
-                            <input name="cusaddress" class="form-control" required="required">
-                            
-                        </div>
-                        <div class="form-group bmd-form-group">
-                            <label class="bmd-label-floating">Email</label>
-                            <input name="cusemail" type="email" class="form-control" required="required">
-                        </div>
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">Địa chỉ</label>
+                                <input name="cusaddress" class="form-control" required="required">
+
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">Email</label>
+                                <input name="cusemail" type="email" class="form-control" required="required">
+                            </div>
                             <div class="card-footer ">
                                 <button type="submit" class="btn btn-fill btn-primary">Gửi đơn hàng</button>
                             </div>

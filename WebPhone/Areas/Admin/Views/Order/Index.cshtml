@@ -39,6 +39,15 @@
                                 Nơi nhận hàng
                             </th>
                             <th class="text-center">
+                                Tên khách hàng
+                            </th>
+                            <th class="text-center">
+                                SĐT khách hàng
+                            </th>
+                            <th class="text-center">
+                                Email khách hàng
+                            </th>
+                            <th class="text-center">
                                 Tổng tiền
                             </th>
                             <th class="text-center">
@@ -49,25 +58,34 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td class="text-center">
-                                    @item.Order_id
-                                </td>
-                                <td class="text-center">
-                                    @item.Create_date
-                                </td>
-                                <td class="text-center">
-                                    @item.Delivery_address
-                                </td>
-                                <td class="text-center">
-                                    @item.Total_price
-                                </td>
-                                <td class="td-actions text-center">
-                                    <a href="Order/Detail/@item.Order_id" class="btn btn-warning btn-link">
-                                        <i class="material-icons">description</i>
-                                    </a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td class="text-center">
+                                @item.Order_id
+                            </td>
+                            <td class="text-center">
+                                @item.Create_date
+                            </td>
+                            <td class="text-center">
+                                @item.Delivery_address
+                            </td>
+                            <td class="text-center">
+                                @item.Customer.Customer_name
+                            </td>
+                            <td class="text-center">
+                                @item.Customer.Customer_phone
+                            </td>
+                            <td class="text-center">
+                               @item.Customer.Customer_mail
+                            </td>
+                            <td class="text-center">
+                                @item.Total_price
+                            </td>
+                            <td class="td-actions text-center">
+                                <a href="Order/Detail/@item.Order_id" class="btn btn-warning btn-link">
+                                    <i class="material-icons">description</i>
+                                </a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebPhone.Areas.Admin.Commons;
 using WebPhone.Areas.Admin.Models;
 
 namespace WebPhone.Areas.Admin.Controllers
@@ -35,8 +36,8 @@ namespace WebPhone.Areas.Admin.Controllers
                 else
                 {
                     var user = new User();
-                    user.Username = model.Username;                    
-                    user.Password = model.Password;
+                    user.Username = model.Username;
+                    user.Password = Encryptor.MD5Hash(model.Password);
                     user.Name = model.Name;
                     user.Address = model.Address;
                     user.Email = model.Email;

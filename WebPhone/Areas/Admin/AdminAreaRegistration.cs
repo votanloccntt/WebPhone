@@ -19,6 +19,16 @@ namespace WebPhone.Areas.Admin
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", controller = "Home", id = UrlParameter.Optional }
             );
+            context.MapRoute(
+                name: "Register",
+                url: "dang-ky",
+                defaults: new { area = "Admin", controller = "Register", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Areas.Admin.Controllers" }
+            );
+            context.MapRoute(
+                name: "Login",
+                url: "dang-nhap",
+                defaults: new { area = "Admin", controller = "Login", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Areas.Admin.Controllers" }
+            );
         }
     }
 }

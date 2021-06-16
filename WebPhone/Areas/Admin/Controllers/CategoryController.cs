@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace WebPhone.Areas.Admin.Controllers
 {
-    public class CategoryController : BasicController
+    public class CategoryController : BaseController
     {
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {

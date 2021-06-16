@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/Admin/Login/Index" class="nav-link">
+                        <a href="/dang-nhap" class="nav-link">
                             <i class="material-icons">fingerprint</i> ĐĂNG NHẬP
                         </a>
                     </li>
@@ -58,7 +58,6 @@
                     <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
                         @using (Html.BeginForm("Index", "Register", FormMethod.Post, new { @class = "form" }))
                         {
-                            @Html.AntiForgeryToken()
                             <div class="card card-login card-hidden">
                                 <div class="card-header card-header-primary text-center">
                                     <h4 class="card-title">Đăng ký</h4>

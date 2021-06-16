@@ -31,7 +31,7 @@
                         @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
                         <div class="col-sm-10">
                             <div class="form-group bmd-form-group">
-                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @type = "password", @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -45,11 +45,47 @@
                             </div>
                         </div>
                     </div>
-                        <div class="col-md-12">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
                             <div class="form-group bmd-form-group">
-                                <button type="submit" class="btn btn-fill btn-primary" value="Create">Thêm mới</button>
+                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                             </div>
-                        </div>                 
+                        </div>
+                    </div>
+                    <div class="row">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            <div class="form-group bmd-form-group">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            <div class="form-group bmd-form-group">
+                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            <div class="form-group bmd-form-group">
+                                @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                            <button type="submit" class="btn btn-fill btn-primary" value="Create">Thêm mới</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

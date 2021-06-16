@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebPhone.Areas.Admin.Controllers
 {
-    public class HomeController : BasicController
+    public class HomeController : BaseController
     {
         // GET: Admin/Home
         public ActionResult Index()

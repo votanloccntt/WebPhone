@@ -1,4 +1,4 @@
-﻿@model Models.EntityFramework.Order_detail
+﻿@model List<Models.EntityFramework.Order_detail>
 
 @{
     ViewBag.Title = "Detail";
@@ -23,25 +23,10 @@
                         <thead class=" text-primary">
                             <tr>
                                 <th class="text-center">
-                                    Tên khách hàng
-                                </th>
-                                <th class="text-center">
-                                    Số điện thoại khách hàng
-                                </th>
-                                <th class="text-center">
-                                    Mail
-                                </th>
-                                <th class="text-center">
-                                    Địa chỉ nhận hàng
-                                </th>
-                                <th class="text-center">
                                     Tên sản phẩm
                                 </th>
                                 <th class="text-center">
                                     Số lượng
-                                </th>
-                                <th class="text-center">
-                                    Đơn giá
                                 </th>
                                 <th class="text-center">
                                     Thành tiền
@@ -49,32 +34,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">
-                                    @Html.DisplayFor(model => model.Order.Customer.Customer_name)
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(model => model.Order.Customer.Customer_phone)
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(model => model.Order.Customer.Customer_mail)
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(model => model.Order.Delivery_address)
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(model => model.Phones.Name_phone)
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(model => model.Sale_quantity)
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(model => model.Price)
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(model => model.Order.Total_price)
-                                </td>
-                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        @item.Phones.Name_phone
+                                        
+                                    </td>
+                                    <td class="text-center">
+                                        @item.Sale_quantity
+                                        
+                                    </td>
+                                    <td class="text-center">
+                                        @item.Price                                      
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

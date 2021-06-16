@@ -89,17 +89,7 @@ namespace WebPhone.Controllers
             var cart = (List<CartItem>)Session[CartSession];
             var customer = new Customer();
             var order = new Order();
-            foreach(var item in cart)
-            {
-                if(item.Phones.Promotion_price==null)
-                {
-                    order.Total_price = item.Phones.Price * item.Quantity;
-                }
-                else
-                {
-                    order.Total_price = item.Phones.Promotion_price * item.Quantity;
-                }
-            }    
+            var detailDAO = new OrderDetailDAO();
             order.Create_date = DateTime.Now;
             order.Delivery_address = cusaddress;
             customer.Customer_phone = cusphone;
@@ -107,21 +97,20 @@ namespace WebPhone.Controllers
             customer.Customer_mail = cusemail;
             var customerid = new CustomerDAO().Insert(customer);
             order.Customer_id = customer.Customer_id;
-            var id = new OrderDAO().Insert(order);          
-            var detailDAO = new OrderDetailDAO();
+             var id = new OrderDAO().Insert(order);
             foreach (var item in cart)
-            {             
+            {
                 var orderDetail = new Order_detail();
                 orderDetail.Phones_id = item.Phones.Phones_id;
                 orderDetail.Order_id = id;
-                if(item.Phones.Promotion_price==null)
+                if (item.Phones.Promotion_price == null)
                 {
-                    orderDetail.Price = item.Phones.Price;
+                    orderDetail.Price = item.Phones.Price * item.Quantity;
                 }
                 else
                 {
-                    orderDetail.Price = item.Phones.Promotion_price;
-                }                
+                    orderDetail.Price = item.Phones.Promotion_price * item.Quantity;
+                }
                 orderDetail.Sale_quantity = item.Quantity;
                 detailDAO.Insert(orderDetail);
             }
