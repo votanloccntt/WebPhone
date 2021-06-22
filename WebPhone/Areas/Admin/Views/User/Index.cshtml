@@ -12,7 +12,7 @@
                 <i class="material-icons">assignment</i>
             </div>
             <h2 class="card-title text-primary text-center">NGƯỜI DÙNG</h2>
-            <a href="/Admin/User/Create" class="btn btn-info btn-link">
+            <a href="User/Create" class="btn btn-info btn-link">
                 <i class="material-icons">add</i>
                 Thêm người dùng
             </a>
@@ -34,9 +34,6 @@
                         <tr>
                             <th class="text-center">
                                 Tên tài khoản
-                            </th>
-                            <th class="text-center">
-                                Mật khẩu
                             </th>
                             <th class="text-center">
                                 Tên
@@ -66,9 +63,6 @@
                                 @item.Username
                             </td>
                             <td class="text-center">
-                                @item.Password
-                            </td>
-                            <td class="text-center">
                                 @item.Name
                             </td>
                             <td class="text-center">
@@ -84,11 +78,11 @@
                                 @item.Type
                             </td>
                             <td class="td-actions text-center">
-                                <a href="User/Edit/@item.User_id" class="btn btn-success btn-link">
+                                <a href="User/Edit/@item.User_id" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" data-original-title="Cập nhật người dùng">
                                     <i class="material-icons">edit</i>
                                 </a>
 
-                                <a href="User/Delete/@item.User_id" class="btn btn-danger btn-link">
+                                <a href="User/Delete/@item.User_id" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" data-original-title="Xóa người dùng">
                                     <i class="material-icons">close</i>
                                 </a>
                             </td>

@@ -24,6 +24,7 @@ namespace WebPhone.Areas.Admin.Controllers
         {
             return View();
         }
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var user = new UserDAO().ViewDetail(id);

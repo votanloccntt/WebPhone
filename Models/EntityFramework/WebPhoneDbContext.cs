@@ -24,6 +24,7 @@ namespace Models.EntityFramework
         public virtual DbSet<Phones> Phones { get; set; }
         public virtual DbSet<Sale_phones> Sale_phones { get; set; }
         public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -92,6 +93,14 @@ namespace Models.EntityFramework
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Phone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Type)
                 .IsUnicode(false);
         }
     }

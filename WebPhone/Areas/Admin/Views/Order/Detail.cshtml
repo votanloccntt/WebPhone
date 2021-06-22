@@ -1,5 +1,4 @@
 ﻿@model List<Models.EntityFramework.Order_detail>
-
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -39,14 +38,12 @@
                                 <tr>
                                     <td class="text-center">
                                         @item.Phones.Name_phone
-                                        
                                     </td>
                                     <td class="text-center">
                                         @item.Sale_quantity
-                                        
                                     </td>
                                     <td class="text-center">
-                                        @item.Price                                      
+                                        @item.Price
                                     </td>
                                 </tr>
                             }

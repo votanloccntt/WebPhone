@@ -3,7 +3,9 @@
     ViewBag.Title = "Thanh toán";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@{ 
+    int total = 0;
+}
 <div class="ecommerce">
     <div class="main main-raised">
         <div class="row">
@@ -33,8 +35,24 @@
                                     <td class="td-number text-center">@item.Quantity</td>
                                     <td class="td-number text-center">@((item.Phones.Promotion_price.HasValue? item.Phones.Promotion_price.GetValueOrDefault(0).ToString("N0"):item.Phones.Price.GetValueOrDefault(0).ToString("N0")))</td>
                                     <td class="td-number text-center text-danger">@((item.Phones.Promotion_price.HasValue? (item.Phones.Promotion_price.GetValueOrDefault(0) * item.Quantity).ToString("N0"):(item.Phones.Price.GetValueOrDefault(0)*item.Quantity).ToString("N0")))</td>
+                                    @if (item.Phones.Promotion_price.HasValue)
+                                    {
+                                        total += (item.Phones.Promotion_price.GetValueOrDefault(0) * item.Quantity);
+                                    }
+                                    else
+                                    {
+                                        total += (item.Phones.Price.GetValueOrDefault(0) * item.Quantity);
+                                    }
                                 </tr>
                             }
+                        <tr>
+                            <td colspan="3"></td>
+                            <td class="text-right td-total">
+                                Tổng tiền:
+                            </td>
+                            <td class="text-left text-danger td-price">@total.ToString("N0")</td>
+                            <td colspan="3"></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -71,6 +89,7 @@
                             <div class="card-footer ">
                                 <button type="submit" class="btn btn-fill btn-primary">Gửi đơn hàng</button>
                             </div>
+                            <input class="text-hide" name="total" value="@total" />
                         }
                     </div>
                 </div>
@@ -78,4 +97,3 @@
         </div>
     </div>
 </div>
-

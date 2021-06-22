@@ -1,9 +1,4 @@
-﻿
-@{
-    Layout = null;
-}
-
-<div class="sidebar" data-color="purple" data-background-color="black" data-image="~/Assets/admin/img/sidebar-1.jpg">
+﻿<div class="sidebar" data-color="purple" data-background-color="black" data-image="~/Assets/admin/img/sidebar-1.jpg">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -17,7 +12,9 @@
             <div class="user-info">
                 <a data-toggle="collapse" href="#User" class="username">
                     <span>
-                        Admin
+                        <p>
+                            Admin
+                        </p>
                         <b class="caret"></b>
                     </span>
                 </a>
@@ -25,22 +22,16 @@
                     <ul class="nav">
                         <li class="nav-item">
                             <a class="nav-link" href="/Admin/Login/Logout">
-                                <i class="material-icons">password</i>
-                                <span class="sidebar-normal">Đổi mật khẩu</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Admin/Login/Logout">
                                 <i class="material-icons">logout</i>
                                 <span class="sidebar-normal">Đăng xuất</span>
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div>                
             </div>
         </div>
         <ul class="nav">
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#SP">
                     <i class="material-icons">inventory_2</i>
                     <p>
@@ -50,13 +41,13 @@
                 </a>
                 <div class="collapse" id="SP">
                     <ul class="nav">
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a class="nav-link" href="/Admin/Phones">
                                 <i class="material-icons">shopping_bag</i>
                                 <span class="sidebar-normal"> Sản phẩm </span>
                             </a>
-                        </li>                        
-                        <li class="nav-item ">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/Admin/Category">
                                 <i class="material-icons">account_balance_wallet</i>
                                 <span class="sidebar-normal"> Danh mục sản phẩm </span>
@@ -65,7 +56,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ND">
                     <i class="material-icons">account_box</i>
                     <p>
@@ -75,14 +66,14 @@
                 </a>
                 <div class="collapse" id="ND">
                     <ul class="nav">
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a class="nav-link" href="/Admin/User">
                                 <i class="material-icons">people</i>
                                 <span class="sidebar-normal"> Người dùng </span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="~/Assets/admin/examples/pages/login.html">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Deliverer">
                                 <i class="material-icons">local_shipping</i>
                                 <span class="sidebar-normal"> Nhân viên giao hàng </span>
                             </a>
@@ -90,7 +81,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#DH">
                     <i class="material-icons">receipt_long</i>
                     <p>
@@ -100,23 +91,17 @@
                 </a>
                 <div class="collapse" id="DH">
                     <ul class="nav">
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a class="nav-link" href="/Admin/Order">
                                 <i class="material-icons">credit_score</i>
                                 <span class="sidebar-normal"> Đơn đặt hàng </span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="~/Assets/admin/examples/forms/wizard.html">
-                                <i class="material-icons">price_check</i>
-                                <span class="sidebar-normal"> Xử lý đơn hàng </span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="/Admin/Feedback">
                     <i class="material-icons">feedback</i>
                     <p>Phản hồi</p>
                 </a>

@@ -36,36 +36,30 @@ namespace Models.DAO
             db.SaveChanges();
             return entity.Category_id;
         }
+        public Category ViewDetail(int id)
+        {
+            return db.Category.Find(id);
+        }
         public bool Update(Category entity)
         {
-            var category = db.Category.Find(entity.Category_id);
-            category.Category_name = entity.Category_name;
-            category.Parent_id = entity.Parent_id;
-            db.SaveChanges();
-            return true;
+                var category = db.Category.Find(entity.Category_id);
+                category.Category_name = entity.Category_name;
+                category.Parent_id = entity.Parent_id;
+                category.Metta_title = entity.Metta_title;
+                category.Seo_title = entity.Seo_title;
+                db.SaveChanges();
+                return true;     
         }
         public Category GetById(string categoryName)
         {
             return db.Category.SingleOrDefault(x => x.Category_name == categoryName);
         }
-        public Category ViewDetail(int id)
-        {
-            return db.Category.Find(id);
-        }
         public bool Delete(int id)
         {
-            try
-            {
                 var category = db.Category.Find(id);
                 db.Category.Remove(category);
                 db.SaveChanges();
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
-
         }
     }
 }

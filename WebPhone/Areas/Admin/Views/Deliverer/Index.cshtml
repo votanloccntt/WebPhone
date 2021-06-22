@@ -1,0 +1,81 @@
+﻿@model PagedList.IPagedList<Models.EntityFramework.Deliverer>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-icon card-header-primary">
+            <div class="card-icon">
+                <i class="material-icons">assignment</i>
+            </div>
+            <h2 class="card-title text-primary text-center">NHÂN VIÊN GIAO HÀNG</h2>
+            <a href="Deliverer/Create" class="btn btn-info btn-link">
+                <i class="material-icons">add</i>
+                Thêm nhân viên
+            </a>
+        </div>
+        @using (Html.BeginForm("Index", "Deliverer", FormMethod.Get, new { @class = "navbar-form col-md-3 ml-auto" }))
+        {
+            <div class="input-group no-border">
+                <input type="text" value="@ViewBag.SearchString" name="searchString" class="form-control" placeholder="Tìm kiếm...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                </button>
+            </div>
+        }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="text-primary">
+                        <tr>
+                            <th class="text-center">
+                                ID nhân viên
+                            </th>
+                            <th class="text-center">
+                                Tên nhân viên
+                            </th>
+                            <th class="text-center">
+                                Số điện thoại nhân viên
+                            </th>
+                            <th class="text-center">
+                                Chức năng
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @item.Deliverer_id
+                                </td>
+                                <td class="text-center">
+                                    @item.Deliverer_name
+                                </td>
+                                <td class="text-center">
+                                    @item.Deliverer_phone
+                                </td>
+                                <td class="td-actions text-center">
+                                    <a href="Deliverer/Edit/@item.Deliverer_id" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" data-original-title="Cập nhật nhân viên">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+
+                                    <a href="Deliverer/Delete/@item.Deliverer_id" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" data-original-title="Xóa nhân viên">
+                                        <i class="material-icons">close</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchstring = @ViewBag.SearchString }))
+            </div>
+        </div>
+    </div>
+</div>
+

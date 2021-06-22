@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
+    int total = 0;
     var session = (UserLogin)Session[WebPhone.Common.CommonConstants.USER_SESSION];
 }
 @section jsFooter{
@@ -37,7 +38,15 @@
                                     <td class="text-center"><img src="@item.Phones.Image" width="100" /></td>
                                     <td class="td-number text-center">@item.Quantity</td>
                                     <td class="td-number text-center">@(item.Phones.Promotion_price.HasValue ? item.Phones.Promotion_price.GetValueOrDefault(0).ToString("N0") : item.Phones.Price.GetValueOrDefault(0).ToString("N0"))</td>
-                                    <td class="td-number text-center text-danger">@(item.Phones.Promotion_price.HasValue ? (item.Phones.Promotion_price.GetValueOrDefault(0) * item.Quantity).ToString("N0") : (item.Phones.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                                    <td class="td-number text-center">@(item.Phones.Promotion_price.HasValue ? (item.Phones.Promotion_price.GetValueOrDefault(0) * item.Quantity).ToString("N0") : (item.Phones.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                                    @if (item.Phones.Promotion_price.HasValue)
+                                    {
+                                        total += (item.Phones.Promotion_price.GetValueOrDefault(0) * item.Quantity);
+                                    }
+                                    else
+                                    {
+                                        total += (item.Phones.Price.GetValueOrDefault(0) * item.Quantity);
+                                    }
                                     <td class="td-actions">
                                         <button id="btnDelete" data-id="@item.Phones.Phones_id" class="btn btn-link btn-danger" rel="tooltip" data-placement="top" data-original-title="Hoàn tác">
                                             <i class="material-icons">close</i>
@@ -47,6 +56,10 @@
                             }
                             <tr>
                                 <td colspan="3"></td>
+                                <td class="text-right td-total">
+                                    Tổng tiền:
+                                </td>
+                                <td class="text-left text-danger td-price">@total.ToString("N0")</td>
                                 <td colspan="3" class="text-right">
                                     <button id="btnContinue" class="btn btn-primary">Tiếp tục mua hàng</button>
                                     @if (session != null)
@@ -55,7 +68,7 @@
                                     }
                                     else
                                     {
-                                        <a href="/dang-nhap"  class="btn btn-primary">Thanh toán</a>
+                                        <a href="/dang-nhap" class="btn btn-primary">Thanh toán</a>
                                     }
                                 </td>
                             </tr>

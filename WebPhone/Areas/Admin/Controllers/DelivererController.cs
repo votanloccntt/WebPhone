@@ -8,66 +8,66 @@ using System.Web.Mvc;
 
 namespace WebPhone.Areas.Admin.Controllers
 {
-    public class CategoryController : BaseController
+    public class DelivererController : BaseController
     {
+        // GET: Admin/Deliverer
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            var dao = new CategoryDAO();
+            var dao = new DelivererDAO();
             var model = dao.ListAllPaging(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
             return View(model);
         }
-        // GET: Admin/Category
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
-        [HttpGet]
         public ActionResult Edit(int id)
         {
-            var category = new CategoryDAO().ViewDetail(id);
-            return View(category);
+            var deliverer = new DelivererDAO().ViewDetail(id);
+            return View(deliverer);
         }
         [HttpPost]
-        public ActionResult Create(Category category)
+        public ActionResult Create(Deliverer deliverer)
         {
             if (ModelState.IsValid)
             {
-                var dao = new CategoryDAO();
-                long id = dao.Insert(category);
+                var dao = new DelivererDAO();
+                long id = dao.Insert(deliverer);
                 if (id > 0)
                 {
-                    return RedirectToAction("Index", "Category");
+                    return RedirectToAction("Index", "Deliverer");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm danh mục thành công");
+                    ModelState.AddModelError("", "Thêm Nhân viên thành công");
                 }
             }
             return View("Index");
         }
         [HttpPost]
-        public ActionResult Edit(Category category)
+        public ActionResult Edit(Deliverer deliverer)
         {
             if (ModelState.IsValid)
             {
-                var dao = new CategoryDAO();
-                var result = dao.Update(category);
+                var dao = new DelivererDAO();
+                var result = dao.Update(deliverer);
                 if (result)
                 {
-                    return RedirectToAction("Index", "Category");
+                    return RedirectToAction("Index", "Deliverer");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật danh mục thành công");
+                    ModelState.AddModelError("", "Cập nhật nhân viên thành công");
                 }
             }
             return View("Index");
         }
+
         public ActionResult Delete(int id)
         {
-            new CategoryDAO().Delete(id);
+            new DelivererDAO().Delete(id);
             return RedirectToAction("Index");
         }
     }

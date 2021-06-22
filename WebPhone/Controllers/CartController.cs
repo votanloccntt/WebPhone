@@ -84,12 +84,13 @@ namespace WebPhone.Controllers
         }
 
         [HttpPost]
-        public ActionResult Payment(string cusname, string cusphone, string cusaddress, string cusemail)
-        {
+        public ActionResult Payment(string cusname, string cusphone, string cusaddress, string cusemail, int total)
+        {            
             var cart = (List<CartItem>)Session[CartSession];
             var customer = new Customer();
             var order = new Order();
             var detailDAO = new OrderDetailDAO();
+            order.Total_price = total;
             order.Create_date = DateTime.Now;
             order.Delivery_address = cusaddress;
             customer.Customer_phone = cusphone;
@@ -103,13 +104,14 @@ namespace WebPhone.Controllers
                 var orderDetail = new Order_detail();
                 orderDetail.Phones_id = item.Phones.Phones_id;
                 orderDetail.Order_id = id;
-                if (item.Phones.Promotion_price == null)
+                if (item.Phones.Promotion_price.HasValue)
                 {
-                    orderDetail.Price = item.Phones.Price * item.Quantity;
+                    orderDetail.Price = item.Phones.Promotion_price * item.Quantity;
+                    
                 }
                 else
                 {
-                    orderDetail.Price = item.Phones.Promotion_price * item.Quantity;
+                    orderDetail.Price = item.Phones.Price * item.Quantity;
                 }
                 orderDetail.Sale_quantity = item.Quantity;
                 detailDAO.Insert(orderDetail);

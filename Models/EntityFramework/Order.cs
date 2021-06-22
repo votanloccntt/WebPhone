@@ -1,4 +1,4 @@
-namespace Models.EntityFramework
+﻿namespace Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace Models.EntityFramework
         public int Order_id { get; set; }
 
         public int? Customer_id { get; set; }
-
+        [Display(Name = "Trạng thái")]
         public int? Status_id { get; set; }
 
         public int? Deliverer_id { get; set; }

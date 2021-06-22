@@ -1,0 +1,50 @@
+﻿@model Models.EntityFramework.Deliverer
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Deliverer", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header card-header-primary card-header-text">
+                <div class="card-text">
+                    <h4 class="card-title">Cập nhật người dùng</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <form class="form-horizontal">
+                    <div class="row">
+                        @Html.HiddenFor(model => model.Deliverer_id)
+                        @Html.LabelFor(model => model.Deliverer_name, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            <div class="form-group bmd-form-group">
+                                @Html.EditorFor(model => model.Deliverer_name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Deliverer_name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @Html.LabelFor(model => model.Deliverer_phone, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-10">
+                            <div class="form-group bmd-form-group">
+                                @Html.EditorFor(model => model.Deliverer_phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Deliverer_phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>                   
+                    <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                            <button type="submit" class="btn btn-fill btn-primary" value="Edit">Cập nhật</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+

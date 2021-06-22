@@ -33,12 +33,16 @@ namespace Models.DAO
             db.SaveChanges();
             return entity.User_id;
         }
-         public bool Update(User entity)
+        public bool Update(User entity)
         {
             var user = db.User.Find(entity.User_id);
             user.Username = entity.Username;
             user.Password = entity.Password;
-            user.Name = entity.Name;        
+            user.Name = entity.Name;
+            user.Address = entity.Address;
+            user.Email = entity.Email;
+            user.Phone = entity.Phone;
+            user.Type = entity.Type;
             db.SaveChanges();
             return true;
         }
@@ -68,7 +72,7 @@ namespace Models.DAO
         public int Login(string userName, string passWord)
         {
             var result = db.User.SingleOrDefault(x => x.Username == userName);
-            if(result == null)
+            if (result == null)
             {
                 return 0;
             }

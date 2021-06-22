@@ -31,5 +31,16 @@ namespace Models.DAO
             }
             return model.OrderBy(x => x.Order_id).ToPagedList(page, pageSize);
         }
+        public Order ViewDetail(int id)
+        {
+            return db.Order.Find(id);
+        }
+        public bool Update(Order entity)
+        {
+            var order = db.Order.Find(entity.Order_id);
+            order.Status_id = entity.Status_id;
+            db.SaveChanges();
+            return true;
+        }
     }
 }

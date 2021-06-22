@@ -19,6 +19,7 @@
             <div class="card-body ">
                 <form class="form-horizontal">
                     <div class="row">
+                        @Html.HiddenFor(model => model.Phones_id)
                         @Html.LabelFor(model => model.Name_phone, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
                         <div class="col-sm-4">
                             <div class="form-group bmd-form-group">
@@ -149,4 +150,3 @@
         </div>
     </div>
 }
-
