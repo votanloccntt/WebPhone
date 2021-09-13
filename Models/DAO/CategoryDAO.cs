@@ -21,7 +21,7 @@ namespace Models.DAO
             IQueryable<Category> model = db.Category;
             if (!string.IsNullOrEmpty(sreachString))
             {
-                model = model.Where(x => x.Category_name.Contains(sreachString)
+                model = model.Where(x => x.Category_name.Contains(sreachString) || x.Metta_title.Contains(sreachString) || x.Seo_title.Contains(sreachString)
                 );
             }
             return model.OrderBy(x => x.Category_id).ToPagedList(page, pageSize);

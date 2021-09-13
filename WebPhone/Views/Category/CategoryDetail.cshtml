@@ -14,7 +14,7 @@
                     {
                         var url = "/san-pham/" + @item.Meta_title + "-" + @item.Phones_id;
                         <div class="col-md-4">
-                            <div class="card card-product card-plain no-shadow" data-colored-shadow="false">
+                            <div class="card card-product no-shadow" data-colored-shadow="false">
                                 <div class="card-header card-header-image">
                                     <a href="@url">
                                         <img src="@item.Image" alt="@item.Name_phone">
@@ -29,9 +29,9 @@
                                     <div class="price-container">
                                         <span class="price text-danger">@(item.Promotion_price.HasValue?@item.Promotion_price.Value.ToString("N0"): @item.Price.Value.ToString("N0"))</span>
                                     </div>
-                                    <button class="btn btn-danger btn-link btn-fab btn-fab-mini" rel="tooltip" data-placement="bottom" data-original-title="Thêm vào giỏ">
+                                    <a href="/them-gio-hang?productId=@item.Phones_id&quantity=1" class="btn btn-danger btn-link btn-fab btn-fab-mini" rel="tooltip" data-placement="bottom" data-original-title="Thêm vào giỏ">
                                         <i class="material-icons">add_shopping_cart</i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <!-- end card -->

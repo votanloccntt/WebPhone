@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<Models.EntityFramework.Comment>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-icon card-header-primary">
+            <div class="card-icon">
+                <i class="material-icons">assignment</i>
+            </div>
+            <h2 class="card-title text-primary text-center">PHẢN HỒI</h2>
+        </div>
+        @using (Html.BeginForm("Index", "Comment", FormMethod.Get, new { @class = "navbar-form col-md-3 ml-auto" }))
+        {
+            <div class="input-group no-border">
+                <input type="text" value="@ViewBag.SearchString" name="searchString" class="form-control" placeholder="Tìm kiếm...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                </button>
+            </div>
+        }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="text-primary">
+                        <tr>
+                            <th class="text-center">
+                                Thời gian
+                            </th>
+                            <th class="text-center">
+                                Họ Tên
+                            </th>
+                            <th class="text-center">
+                                Số điện thoại
+                            </th>
+                            <th class="text-center">
+                                Yêu cầu
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td class="text-center">
+                                @item.Comment_time
+                            </td>
+                            <td class="text-center">
+                                @item.Full_name
+                            </td>
+                            <td class="text-center">
+                                @item.Phone_number
+                            </td>
+                            <td class="text-center">
+                                @item.Comment_content
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchstring = @ViewBag.SearchString }))
+            </div>
+        </div>
+    </div>
+</div>

@@ -42,37 +42,16 @@
                                 Giá
                             </th>
                             <th class="text-center">
-                                Mành hình
-                            </th>
-                            <th class="text-center">
-                                Hệ điều hành
-                            </th>
-                            <th class="text-center">
-                                Camera sau
-                            </th>
-                            <th class="text-center">
-                                Camera trước
-                            </th>
-                            <th class="text-center">
-                                CHIP
-                            </th>
-                            <th class="text-center">
-                                RAM
-                            </th>
-                            <th class="text-center">
-                                Bộ nhớ trong
-                            </th>
-                            <th class="text-center">
-                                SIM
-                            </th>
-                            <th class="text-center">
-                                PIN
-                            </th>
-                            <th class="text-center">
-                                Sạc
-                            </th>
-                            <th class="text-center">
                                 Giá khuyến mãi
+                            </th>
+                            <th class="text-center">
+                                Bắt đầu khuyến mãi
+                            </th>
+                            <th class="text-center">
+                                Kết thúc khuyến mãi
+                            </th>
+                            <th class="text-center">
+                                Ngày tạo
                             </th>
                             <th class="text-center">
                                 Chức năng
@@ -82,59 +61,38 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td class="text-center">
-                                    @item.Name_phone
-                                </td>
-                                <td class="text-center">
-                                    <img src="@item.Image" width="100"/>
-                                </td>
-                                <td class="text-center">
-                                    @item.Price
-                                </td>
-                                <td class="text-center">
-                                    @item.Screen
-                                </td>
-                                <td class="text-center">
-                                    @item.Operating_system
-                                </td>
-                                <td class="text-center">
-                                    @item.Rear_camera
-                                </td>
-                                <td class="text-center">
-                                    @item.Front_camera
-                                </td>
-                                <td class="text-center">
-                                    @item.Chip
-                                </td>
-                                <td class="text-center">
-                                    @item.Ram
-                                </td>
-                                <td class="text-center">
-                                    @item.Internal_memory
-                                </td>
-                                <td class="text-center">
-                                    @item.Sim
-                                </td>
-                                <td class="text-center">
-                                    @item.Pin
-                                </td>
-                                <td class="text-center">
-                                    @item.Charger
-                                </td>
-                                <td class="text-center">
-                                    @item.Promotion_price
-                                </td>
-                                <td class="td-actions text-center">
-                                    <a href="Phones/Edit/@item.Phones_id" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" data-original-title="Cập nhật sản phẩm">
-                                        <i class="material-icons">edit</i>
-                                    </a>
+                        <tr>
+                            <td class="text-center">
+                                @item.Name_phone
+                            </td>
+                            <td class="text-center">
+                                <img src="@item.Image" width="100" />
+                            </td>
+                            <td class="text-center">
+                                @item.Price
+                            </td>
+                            <td class="text-center">
+                                @item.Promotion_price
+                            </td>
+                            <td class="text-center">
+                                @item.Start_promotion
+                            </td>
+                            <td class="text-center">
+                                @item.End_promotion
+                            </td>
+                            <td class="text-center">
+                                @item.Create_date
+                            </td>
+                            <td class="td-actions text-center">
+                                <a href="Phones/Edit/@item.Phones_id" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" data-original-title="Cập nhật sản phẩm">
+                                    <i class="material-icons">edit</i>
+                                </a>
 
-                                    <a href="Phones/Delete/@item.Phones_id" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" data-original-title="Xóa sản phẩm">
-                                        <i class="material-icons">close</i>
-                                    </a>
-                                </td>
-                            </tr>
+                                <a href="Phones/Delete/@item.Phones_id" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" data-original-title="Xóa sản phẩm">
+                                    <i class="material-icons">close</i>
+                                </a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>

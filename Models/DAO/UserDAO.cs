@@ -89,5 +89,10 @@ namespace Models.DAO
         {
             return db.User.Count(x => x.Email == email) > 0;
         }
+        public int CountUser()
+        {
+            var user = db.User.ToList();
+            return user.Count();
+        }
     }
 }

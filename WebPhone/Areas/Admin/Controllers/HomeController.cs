@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,8 +11,12 @@ namespace WebPhone.Areas.Admin.Controllers
     {
         // GET: Admin/Home
         public ActionResult Index()
-        {          
+        {
+            ViewBag.Phones = new PhonesDAO().CountPhones();
+            ViewBag.user = new UserDAO().CountUser();
+            ViewBag.comment = new CommentDAO().CountComment();
+            ViewBag.order = new OrderDAO().CountOrder();
             return View();
-        }
+        }        
     }
 }

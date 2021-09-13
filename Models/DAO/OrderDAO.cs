@@ -42,5 +42,10 @@ namespace Models.DAO
             db.SaveChanges();
             return true;
         }
+        public int CountOrder()
+        {
+            var orders = db.Order.ToList();
+            return orders.Count();
+        }
     }
 }

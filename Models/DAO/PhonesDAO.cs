@@ -46,6 +46,7 @@ namespace Models.DAO
         }
         public int Insert(Phones entity)
         {
+            entity.Create_date = DateTime.Now;
             db.Phones.Add(entity);
             db.SaveChanges();
             return entity.Phones_id;
@@ -96,6 +97,10 @@ namespace Models.DAO
             }
 
         }
-
+        public int CountPhones()
+        {
+            var phones = db.Phones.ToList();
+            return phones.Count();
+        }
     }
 }

@@ -18,7 +18,7 @@
 
         [Key]
         public int Phones_id { get; set; }
-
+        [Display(Name = "Danh mục")]
         public int? Category_id { get; set; }
 
         [StringLength(255)]
