@@ -38,6 +38,52 @@
                         </div>
                     }
                 </div>
+                @if (ViewBag.TotalPage >= 1)
+                {
+                    var pageDisplay = (int)ViewBag.MaxPage;
+                    int totalPage = (int)ViewBag.TotalPage;
+                    int currentPage = ((int)ViewBag.Page);
+                    var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                    var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+                    var link = "/san-pham/" + category.Metta_title + "-" + category.Category_id;
+                    <div class="pagination-area">
+                        <ul class="pagination justify-content-center text-center">
+                            @if (currentPage > ViewBag.First)
+                            {
+                                <li class="page-item">
+                                    <a href="@link?page=@ViewBag.First" class="page-link">First</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="@link?page=@ViewBag.Prev" class="page-link">«</a>
+                                </li>
+                            }
+                            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                            {
+                                if (currentPage == i)
+                                {
+                                    <li class="active page-item">
+                                        <a href="@link?page=@i" class="page-link">@i</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item">
+                                        <a href="@link?page=@i" class="page-link">@i</a>
+                                    </li>
+                                }
+                            }
+                            @if (currentPage < totalPage)
+                            {
+                                <li class="page-item">
+                                    <a href="@link?page=@ViewBag.Next" class="page-link">»</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="@link?page=@ViewBag.Last" class="page-link">Last</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ namespace Models.DAO
         {
             db = new WebPhoneDbContext();
         }
-        public List<Phones>ListNewProduct(int top)
+        public List<Phones> ListNewProduct(int top)
         {
             return db.Phones.OrderByDescending(x => x.Create_date).Take(top).ToList();
         }
@@ -26,11 +26,13 @@ namespace Models.DAO
         public List<Phones> ListRelatedProduct(int productId)
         {
             var product = db.Phones.Find(productId);
-            return db.Phones.Where(x => x.Phones_id != productId && x.Category_id == product.Category_id).ToList();          
+            return db.Phones.Where(x => x.Phones_id != productId && x.Category_id == product.Category_id).ToList();
         }
-        public List<Phones> ListByCategoryId(int categoryID)
+        public List<Phones> ListByCategoryId(int categoryID, ref int totalRecord, int pageIndex = 1, int pageSize = 1)
         {
-            return db.Phones.Where(x => x.Category_id == categoryID).ToList();
+            totalRecord = db.Phones.Where(x => x.Category_id == categoryID).Count();
+            var model = db.Phones.Where(x => x.Category_id == categoryID).OrderByDescending(x=>x.Create_date).Skip((pageIndex - 1) * pageSize).ToList();
+            return model;
         }
         public IEnumerable<Phones> ListAllPaging(string sreachString, int page, int pageSize)
         {
