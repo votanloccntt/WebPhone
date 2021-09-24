@@ -140,6 +140,7 @@
     <Content Include="Assets\admin\img\sidebar-2.jpg" />
     <Content Include="Assets\admin\img\sidebar-3.jpg" />
     <Content Include="Assets\admin\img\sidebar-4.jpg" />
+    <Content Include="Assets\admin\js\Controller\orderController.js" />
     <Content Include="Assets\admin\js\core\bootstrap-material-design.min.js" />
     <Content Include="Assets\admin\js\core\jquery.min.js" />
     <Content Include="Assets\admin\js\core\popper.min.js" />
@@ -413,7 +414,6 @@
     <Content Include="Areas\Admin\Views\Deliverer\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Deliverer\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Deliverer\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Order\Processing.cshtml" />
     <Content Include="Areas\Admin\Views\Comment\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />

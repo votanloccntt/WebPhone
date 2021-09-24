@@ -47,5 +47,19 @@ namespace Models.DAO
             var orders = db.Order.ToList();
             return orders.Count();
         }
+        public  int ChangeStatus(long id)
+        {
+            var order = db.Order.Find(id);
+            if(order.Status_id==1)
+            {
+                order.Status_id = 0;
+            }
+            else
+            {
+                order.Status_id = 1;
+            }
+            db.SaveChanges();
+            return order.Status_id;
+        }
     }
 }

@@ -23,7 +23,6 @@ namespace Models.EntityFramework
         public virtual DbSet<Order_detail> Order_detail { get; set; }
         public virtual DbSet<Phones> Phones { get; set; }
         public virtual DbSet<Sale_phones> Sale_phones { get; set; }
-        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
 

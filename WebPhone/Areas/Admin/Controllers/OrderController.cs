@@ -23,29 +23,15 @@ namespace WebPhone.Areas.Admin.Controllers
             var order_detail = new OrderDetailDAO().ViewDetail(id);
             return View(order_detail);
         }
-        [HttpGet]
-        public ActionResult Processing(int id)
-        {
-            var processing = new OrderDAO().ViewDetail(id);
-            return View(processing);
-        }
         [HttpPost]
-        public ActionResult Processing(Order order)
+        public JsonResult ChangeStatus(long id)
         {
-            if (ModelState.IsValid)
+            var result = new OrderDAO().ChangeStatus(id);
+            return Json(new
             {
-                var dao = new OrderDAO();
-                var result = dao.Update(order);
-                if (result)
-                {
-                    return RedirectToAction("Index", "Order");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Xử lí hóa đơn thành công");
-                }
+                status = result
             }
-            return View("Index");
+                );
         }
     }
 }

@@ -81,7 +81,6 @@
     <Compile Include="EntityFramework\Order_detail.cs" />
     <Compile Include="EntityFramework\Phones.cs" />
     <Compile Include="EntityFramework\Sale_phones.cs" />
-    <Compile Include="EntityFramework\Status.cs" />
     <Compile Include="EntityFramework\sysdiagrams.cs" />
     <Compile Include="EntityFramework\User.cs" />
     <Compile Include="EntityFramework\WebPhoneDbContext.cs" />

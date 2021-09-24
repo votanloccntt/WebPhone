@@ -20,7 +20,7 @@
 
         public int? Customer_id { get; set; }
         [Display(Name = "Trạng thái")]
-        public int? Status_id { get; set; }
+        public int Status_id { get; set; }
 
         public int? Deliverer_id { get; set; }
 
@@ -37,7 +37,5 @@
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_detail> Order_detail { get; set; }
-
-        public virtual Status Status { get; set; }
     }
 }

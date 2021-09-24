@@ -5,7 +5,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
+@section jsFooter{
+    <script src="~/Assets/admin/js/Controller/orderController.js"></script>
+}
 <div class="col-md-12">
     <div class="card">
         <div class="card-header card-header-icon card-header-primary">
@@ -51,50 +53,47 @@
                                 Tổng tiền
                             </th>
                             <th class="text-center">
-                                Tình trạng
+                                Chi tiết
                             </th>
                             <th class="text-center">
-                                Chức năng
+                                Tình trạng
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td class="text-center">
-                                    @item.Order_id
-                                </td>
-                                <td class="text-center">
-                                    @item.Create_date
-                                </td>
-                                <td class="text-center">
-                                    @item.Delivery_address
-                                </td>
-                                <td class="text-center">
-                                    @item.Customer.Customer_name
-                                </td>
-                                <td class="text-center">
-                                    @item.Customer.Customer_phone
-                                </td>
-                                <td class="text-center">
-                                    @item.Customer.Customer_mail
-                                </td>
-                                <td class="text-center">
-                                    @item.Total_price
-                                </td>
-                                <td class="text-center">
-                                    @(item.Status_id.HasValue ? "Đã giao" : "Chưa giao")
-                                </td>
-                                <td class="td-actions text-center">
-                                    <a href="Order/Detail/@item.Order_id" class="btn btn-warning btn-link" rel="tooltip" data-placement="bottom" data-original-title="Chi tiết hóa đơn">
-                                        <i class="material-icons">description</i>
-                                    </a>
-                                    <a href="Order/Processing/@item.Order_id" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" data-original-title="Xử lý hóa đơn">
-                                        <i class="material-icons">verified</i>
-                                    </a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td class="text-center">
+                                @item.Order_id
+                            </td>
+                            <td class="text-center">
+                                @item.Create_date
+                            </td>
+                            <td class="text-center">
+                                @item.Delivery_address
+                            </td>
+                            <td class="text-center">
+                                @item.Customer.Customer_name
+                            </td>
+                            <td class="text-center">
+                                @item.Customer.Customer_phone
+                            </td>
+                            <td class="text-center">
+                                @item.Customer.Customer_mail
+                            </td>
+                            <td class="text-center">
+                                @item.Total_price
+                            </td>
+                            <td class="td-actions text-center">
+                                <a href="Order/Detail/@item.Order_id" class="btn btn-warning" rel="tooltip" data-placement="bottom" data-original-title="Chi tiết hóa đơn">
+                                    <i class="material-icons">description</i>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="#" class="btn-active btn btn-primary btn-sm" data-id="@item.Order_id">@(item.Status_id == 1 ? "Đã giao":"Chưa giao" )</a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>
