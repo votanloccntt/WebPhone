@@ -15,10 +15,15 @@ namespace WebPhone
             routes.IgnoreRoute("{*botdetect}",
     new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
             routes.MapRoute(
+                name: "Search",
+                url: "tim-kiem",
+                defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
+            );
+            routes.MapRoute(
                 name: "Add Cart",
                 url: "them-gio-hang",
                 defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
-            );            
+            );
             routes.MapRoute(
                 name: "Contact",
                 url: "lien-he",

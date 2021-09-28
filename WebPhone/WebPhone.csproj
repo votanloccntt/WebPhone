@@ -162,6 +162,7 @@
     <Content Include="Assets\admin\js\plugins\nouislider.min.js" />
     <Content Include="Assets\admin\js\plugins\perfect-scrollbar.jquery.min.js" />
     <Content Include="Assets\admin\js\plugins\sweetalert2.js" />
+    <Content Include="Assets\client\css\jquery-ui.css" />
     <Content Include="Assets\client\css\material-kit.css" />
     <Content Include="Assets\client\css\material-kit.min.css" />
     <Content Include="Assets\client\img\apple-icon.png" />
@@ -390,9 +391,11 @@
     <Content Include="Assets\client\img\slide\slide3.jpg" />
     <Content Include="Assets\client\js\bootstrap-material-design.js" />
     <Content Include="Assets\client\js\bootstrap-material-design.min.js" />
+    <Content Include="Assets\client\js\controller\baseController.js" />
     <Content Include="Assets\client\js\controller\cartController.js" />
     <Content Include="Assets\client\js\core\jquery.min.js" />
     <Content Include="Assets\client\js\core\popper.min.js" />
+    <Content Include="Assets\client\js\jquery-ui.js" />
     <Content Include="Assets\client\js\material-kit.js" />
     <Content Include="Assets\client\js\material-kit.min.js" />
     <Content Include="Assets\client\js\plugins\bootstrap-datetimepicker.min.js" />
@@ -667,6 +670,7 @@
     <Content Include="Scripts\jquery-3.6.0.min.map" />
     <Content Include="Views\Shared\RightMenu.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -2,6 +2,14 @@
 @{
     var session = (UserLogin)Session[WebPhone.Common.CommonConstants.USER_SESSION];
 }
+<form class="form-inline ml-auto" action="/tim-kiem" method="get">
+    <div class="form-group has-white bmd-form-group">
+        <input type="text" id="txtKeyword" name="keyword" class="form-control" placeholder="Nhập từ khóa">
+    </div>
+    <button type="submit" class="btn btn-white btn-link btn-fab">
+        <i class="material-icons">search</i>
+    </button>
+</form>
 @if (session == null)
 {
     foreach (var item in Model)

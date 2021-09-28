@@ -1,0 +1,89 @@
+﻿@model List<Models.EntityFramework.Phones>
+@{
+    ViewBag.Title = "Kết quả tìm kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="ecommerce">
+    <div class="main main-raised">
+        <div class="section">
+            <div class="container-fluid">
+                <h2 class="section-title">Kết quả tìm kiếm theo từ khóa: @ViewBag.Keyword</h2>
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        var url = "/san-pham/" + @item.Meta_title + "-" + @item.Phones_id;
+                        <div class="col-md-4">
+                            <div class="card card-product no-shadow" data-colored-shadow="false">
+                                <div class="card-header card-header-image">
+                                    <a href="@url">
+                                        <img src="@item.Image" alt="@item.Name_phone">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <a href="@url">
+                                        <h4 class="card-title">@item.Name_phone</h4>
+                                    </a>
+                                </div>
+                                <div class="card-footer justify-content-center">
+                                    <div class="price-container">
+                                        <span class="price text-danger">@(item.Promotion_price.HasValue?@item.Promotion_price.Value.ToString("N0"): @item.Price.Value.ToString("N0"))</span>
+                                    </div>
+                                    <a href="/them-gio-hang?productId=@item.Phones_id&quantity=1" class="btn btn-danger btn-link btn-fab btn-fab-mini" rel="tooltip" data-placement="bottom" data-original-title="Thêm vào giỏ">
+                                        <i class="material-icons">add_shopping_cart</i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                        </div>
+                    }
+                </div>
+                @if (ViewBag.TotalPage >= 1)
+                {
+                    var pageDisplay = (int)ViewBag.MaxPage;
+                    int totalPage = (int)ViewBag.TotalPage;
+                    int currentPage = ((int)ViewBag.Page);
+                    var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                    var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+                    var link = "/tiem-kiem?keyword=" + ViewBag.Keyword;
+                    <div class="pagination-area">
+                        <ul class="pagination justify-content-center text-center">
+                            @if (currentPage > ViewBag.First)
+                            {
+                                <li class="page-item">
+                                    <a href="@link&page=@ViewBag.First" class="page-link">First</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="@link&page=@ViewBag.Prev" class="page-link">«</a>
+                                </li>
+                            }
+                            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                            {
+                                if (currentPage == i)
+                                {
+                                    <li class="active page-item">
+                                        <a href="@link&page=@i" class="page-link">@i</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item">
+                                        <a href="@link&page=@i" class="page-link">@i</a>
+                                    </li>
+                                }
+                            }
+                            @if (currentPage < totalPage)
+                            {
+                                <li class="page-item">
+                                    <a href="@link&page=@ViewBag.Next" class="page-link">»</a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="@link&page=@ViewBag.Last" class="page-link">Last</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

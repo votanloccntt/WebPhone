@@ -15,6 +15,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="~/Assets/client/assets-for-demo/demo.css" rel="stylesheet" />
     <link href="~/Assets/client/assets-for-demo/vertical-nav.css" rel="stylesheet" />
+    <link href="~/Assets/client/css/jquery-ui.css" rel="stylesheet" />
 </head>
 <body>
     @{Html.RenderAction("MainMenu", "Home");}
@@ -23,6 +24,7 @@
     @{ Html.RenderAction("Footer", "Home");}
     <!--   Core JS Files   -->
     <script src="~/Assets/client/js/core/jquery.min.js"></script>
+    <script src="~/Assets/client/js/jquery-ui.js"></script>
     <script src="~/Assets/client/js/core/popper.min.js"></script>
     <script src="~/Assets/client/js/bootstrap-material-design.js"></script>
     <!--  Google Maps Plugin  -->
@@ -72,6 +74,7 @@
             });
         });
     </script>
+    <script src="~/Assets/client/js/controller/baseController.js"></script>
     @RenderSection("JsFooter", required: false)
 </body>
 </html>

@@ -19,6 +19,10 @@ namespace Models.DAO
         {
             return db.Phones.OrderByDescending(x => x.Create_date).Take(top).ToList();
         }
+        public List<string>ListName(string keyword)
+        {
+            return db.Phones.Where(x => x.Name_phone.Contains(keyword)).Select(x => x.Name_phone).ToList();
+        }
         public List<Phones> ListPromotionProduct(int top)
         {
             return db.Phones.OrderByDescending(x => x.Promotion_price).Take(top).ToList();
@@ -32,6 +36,12 @@ namespace Models.DAO
         {
             totalRecord = db.Phones.Where(x => x.Category_id == categoryID).Count();
             var model = db.Phones.Where(x => x.Category_id == categoryID).OrderByDescending(x=>x.Create_date).Skip((pageIndex - 1) * pageSize).ToList();
+            return model;
+        }
+        public List<Phones> Search(string keyword, ref int totalRecord, int pageIndex = 1, int pageSize = 1)
+        {
+            totalRecord = db.Phones.Where(x => x.Name_phone.Contains(keyword)).Count();
+            var model = db.Phones.Where(x => x.Name_phone.Contains(keyword)).OrderByDescending(x => x.Create_date).Skip((pageIndex - 1) * pageSize).ToList();
             return model;
         }
         public IEnumerable<Phones> ListAllPaging(string sreachString, int page, int pageSize)
