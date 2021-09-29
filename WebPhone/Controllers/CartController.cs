@@ -1,7 +1,9 @@
-﻿using Models.DAO;
+﻿using Common;
+using Models.DAO;
 using Models.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -116,6 +118,15 @@ namespace WebPhone.Controllers
                 orderDetail.Sale_quantity = item.Quantity;
                 detailDAO.Insert(orderDetail);
             }
+            string content = System.IO.File.ReadAllText(Server.MapPath("~/Assets/client/template/neworder.html"));
+            content = content.Replace("{{CustomerName}}", cusname);
+            content = content.Replace("{{Phone}}", cusphone);
+            content = content.Replace("{{Email}}", cusemail);
+            content = content.Replace("{{Address}}", cusaddress);
+            content = content.Replace("{{Total}}", total.ToString("N0"));
+            var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+            new MailHelper().SendMail(cusemail,"Đơn hàng mới từ WebPhone", content);
+            new MailHelper().SendMail(toEmail,"Đơn hàng mới từ WebPhone", content);
             return Redirect("/hoan-thanh");
         }
         public ActionResult Success()
