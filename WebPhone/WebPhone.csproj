@@ -409,7 +409,6 @@
     <Content Include="Assets\client\js\plugins\jquery.flexisel.js" />
     <Content Include="Assets\client\js\plugins\moment.min.js" />
     <Content Include="Assets\client\js\plugins\nouislider.min.js" />
-    <Content Include="Assets\client\template\neworder.html" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
@@ -460,6 +459,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\EmailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -687,10 +687,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{807A3747-5F3F-49E8-93F7-2D35624BA8C5}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{ba9d0cc6-7f1a-4e3e-adb6-fe7af7723c96}</Project>
       <Name>Models</Name>

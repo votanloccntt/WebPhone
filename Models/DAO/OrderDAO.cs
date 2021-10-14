@@ -29,7 +29,7 @@ namespace Models.DAO
                 model = model.Where(x => x.Customer.Customer_name.Contains(sreachString) || x.Delivery_address.Contains(sreachString)
             );
             }
-            return model.OrderBy(x => x.Order_id).ToPagedList(page, pageSize);
+            return model.OrderByDescending(x => x.Order_id).ToPagedList(page, pageSize);
         }
         public Order ViewDetail(int id)
         {

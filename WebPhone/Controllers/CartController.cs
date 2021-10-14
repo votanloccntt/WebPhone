@@ -1,10 +1,12 @@
-﻿using Common;
-using Models.DAO;
+﻿using Models.DAO;
 using Models.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using WebPhone.Models;
@@ -84,9 +86,8 @@ namespace WebPhone.Controllers
             }
             return View(list);
         }
-
         [HttpPost]
-        public ActionResult Payment(string cusname, string cusphone, string cusaddress, string cusemail, int total)
+        public ActionResult Payment(EmailModel model,string cusname, string cusphone, string cusaddress, string cusemail, int total)
         {            
             var cart = (List<CartItem>)Session[CartSession];
             var customer = new Customer();
@@ -118,16 +119,24 @@ namespace WebPhone.Controllers
                 orderDetail.Sale_quantity = item.Quantity;
                 detailDAO.Insert(orderDetail);
             }
-            string content = System.IO.File.ReadAllText(Server.MapPath("~/Assets/client/template/neworder.html"));
-            content = content.Replace("{{CustomerName}}", cusname);
-            content = content.Replace("{{Phone}}", cusphone);
-            content = content.Replace("{{Email}}", cusemail);
-            content = content.Replace("{{Address}}", cusaddress);
-            content = content.Replace("{{Total}}", total.ToString("N0"));
-            var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-            new MailHelper().SendMail(cusemail,"Đơn hàng mới từ WebPhone", content);
-            new MailHelper().SendMail(toEmail,"Đơn hàng mới từ WebPhone", content);
-            return Redirect("/hoan-thanh");
+            using (MailMessage mm = new MailMessage("votanloccntt@gmail.com", cusemail))
+            {
+                mm.Subject = "Đơn hàng từ webphone";
+                mm.Body = "Ngày mua: " + order.Create_date + "<br />" + "Tổng tiền: " + total.ToString() + "VND";
+                mm.IsBodyHtml = true;
+                using (SmtpClient smtp=new SmtpClient())
+                {
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    NetworkCredential cred = new NetworkCredential("votanloccntt@gmail.com","1hai3bon5sau7tam9");
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = cred;
+                    smtp.Port = 587;
+                    smtp.Send(mm);
+                    ViewBag.message = "Email Sent";
+                }
+            }
+                return Redirect("/hoan-thanh");
         }
         public ActionResult Success()
         {
