@@ -102,6 +102,10 @@ namespace WebPhone.Areas.Admin.Controllers
                     var userSession = new UserLogin();
                     userSession.UserName = user.Username;
                     userSession.UserID = user.User_id;
+                    userSession.Name = user.Name;
+                    userSession.UserPhone = user.Phone;
+                    userSession.UserEmail = user.Email;
+                    userSession.UserAddress = user.Address;
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     if (user.Type == "admin")
                     {

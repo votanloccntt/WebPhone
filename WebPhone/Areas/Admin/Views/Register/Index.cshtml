@@ -112,20 +112,10 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
-                                                    <i class="material-icons">room</i>
-                                                </span>
-                                            </div>
-                                            @Html.TextBoxFor(model => model.Address, new { @type = "text", @class = "form-control", @placeholder = "Nhập địa chỉ..." })
-                                        </div>
-                                    </div>
-                                    <div class="bmd-form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
                                                     <i class="material-icons">email</i>
                                                 </span>
                                             </div>
-                                            @Html.TextBoxFor(model => model.Email, new { @type = "text", @class = "form-control", @placeholder = "Nhập thư điện tử..." })
+                                            @Html.TextBoxFor(model => model.Email, new { @type = "text", @class = "form-control", @placeholder = "Nhập thư điện tử...", @required = "required" })
                                         </div>
                                     </div>
                                     <div class="bmd-form-group">
@@ -135,7 +125,17 @@
                                                     <i class="material-icons">phone</i>
                                                 </span>
                                             </div>
-                                            @Html.TextBoxFor(model => model.Phone, new { @type = "text", @class = "form-control", @placeholder = "Nhập số điện thoại..." })
+                                            @Html.TextBoxFor(model => model.Phone, new { @type = "text", @class = "form-control", @placeholder = "Nhập số điện thoại...", @required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="bmd-form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="material-icons">room</i>
+                                                </span>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.Address, new { @type = "text", @class = "form-control", @placeholder = "Nhập địa chỉ..." })
                                         </div>
                                     </div>
                                 </div>

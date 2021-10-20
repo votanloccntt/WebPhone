@@ -10,5 +10,9 @@ namespace WebPhone
     {
         public int UserID { set; get; }
         public string UserName { set; get; }
+        public string UserPhone { set; get; }
+        public string UserEmail { set; get; }
+        public string UserAddress { set; get; }
+        public string Name { set; get; }
     }
 }

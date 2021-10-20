@@ -89,7 +89,7 @@ namespace WebPhone.Controllers
         [HttpPost]
         public ActionResult Payment(EmailModel model,string cusname, string cusphone, string cusaddress, string cusemail, int total)
         {            
-            var cart = (List<CartItem>)Session[CartSession];
+            var cart = (List<CartItem>)Session[CartSession];         
             var customer = new Customer();
             var order = new Order();
             var detailDAO = new OrderDetailDAO();
@@ -133,7 +133,6 @@ namespace WebPhone.Controllers
                     smtp.Credentials = cred;
                     smtp.Port = 587;
                     smtp.Send(mm);
-                    ViewBag.message = "Email Sent";
                 }
             }
                 return Redirect("/hoan-thanh");

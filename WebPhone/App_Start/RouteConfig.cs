@@ -30,9 +30,9 @@ namespace WebPhone
                 defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
             );
             routes.MapRoute(
-               name: "About",
-               url: "gioi-thieu",
-               defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
+               name: "News",
+               url: "tin-tuc",
+               defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "WebPhone.Controllers" }
             );
             routes.MapRoute(
               name: "Cart",

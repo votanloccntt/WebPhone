@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebPhone.Controllers
 {
-    public class AboutController : Controller
+    public class NewsController : Controller
     {
         // GET: About
         public ActionResult Index()
