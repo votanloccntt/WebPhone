@@ -3,11 +3,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@{
+    var session = (UserLogin)(Session[WebPhone.Common.CommonConstants.USER_SESSION]);
+}
 <div class="col-md-6 ml-auto mr-auto">
     <div class="card card-contact card-raised">
         @using (Html.BeginForm("Create", "Contact", FormMethod.Post))
-        {           
+        {
             <div class="card-header card-header-primary text-center">
                 <h4 class="card-title">Liên hệ</h4>
             </div>
@@ -15,7 +17,7 @@
                 @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
                 @if (ViewBag.Success != null)
                 {
-                <div class="alert alert-success">@ViewBag.Success</div>
+                    <div class="alert alert-success">@ViewBag.Success</div>
                 }
                 <div class="row">
                     <div class="col-md-6">
@@ -50,14 +52,16 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group label-floating is-empty has-primary bmd-form-group">
-                            <label class="bmd-label-floating">Họ tên</label>
-                            @Html.EditorFor(model => model.Full_name, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <label class="bmd-label-floating">Tên tài khoản</label>
+                            <br />
+                            @Html.EditorFor(model => model.Full_name, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @Value = @session.UserName } })
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group label-floating is-empty has-primary bmd-form-group">
                             <label class="bmd-label-floating">Số điện thoại</label>
-                            @Html.EditorFor(model => model.Phone_number, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            <br />
+                            @Html.EditorFor(model => model.Phone_number, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @Value = @session.UserPhone } })
                         </div>
                     </div>
                 </div>

@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebPhone.Areas.Admin.Controllers;
 
 namespace WebPhone.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : BaseController
     {
         public ActionResult Index()
         {
